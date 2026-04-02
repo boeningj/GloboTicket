@@ -1,0 +1,147 @@
+{
+"GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5050"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/categories",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],      
+      "UpstreamPathTemplate": "/eventcatalog/api/categories",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "eventcatalog.read" ]
+      },
+      "DelegatingHandlers": [ "EventCatalogTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/events",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/eventcatalog/api/events",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "eventcatalog.read" ]
+      },
+      "DelegatingHandlers": [ "EventCatalogTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/events/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/eventcatalog/api/events/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "eventcatalog.read" ]
+      },
+      "DelegatingHandlers": [ "EventCatalogTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/events/?categoryId={id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/eventcatalog/api/events/?categoryId={id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "eventcatalog.read" ]
+      },
+      "DelegatingHandlers": [ "EventCatalogTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/events/eventupdate",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/eventcatalog/api/events/eventupdate",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "eventcatalog.write" ]
+      },
+      "DelegatingHandlers": [ "EventCatalogTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/baskets",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/shoppingbasket/api/baskets",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "shoppingbasket.fullaccess" ]
+      },
+      "DelegatingHandlers": [ "ShoppingBasketTokenExchangeHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/baskets/{all}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/shoppingbasket/api/baskets/{all}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "GloboTicketGatewayAuthenticationScheme"//,
+        //"AllowedScopes": [ "shoppingbasket.fullaccess" ]
+      },
+      "DelegatingHandlers": [ "ShoppingBasketTokenExchangeHandler" ]      
+    },
+    {
+      "DownstreamPathTemplate": "/api/order/{all}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/order/api/order/{all}",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ]
+}
+
+
+// Root upstream: https://localhost:5050/eventcatalog 
+
+// Upstream address https://localhost:5050/eventcatalog/api/events 
+//   => downstream https://localhost:5001/api/events
+
+// Upstream address: https://localhost:5050/eventcatalog/api/categories 
+//   => downstream https://localhost:5001/api/categories

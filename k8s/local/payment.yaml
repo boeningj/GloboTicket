@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-globoticket-services-payment
+  labels:
+    version: dev
+    product: globoticket-services-payment
+spec:
+  type: ClusterIP
+  selector:
+    app: globoticket-services-payment
+  ports:
+  - port: 5006
+    targetPort: 5006
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-payment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-payment
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-payment
+    spec:
+      containers:
+      - name: globoticket-services-payment
+        image: globoticket-payment
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5006
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5006
+          failureThreshold: 30
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5006
+          initialDelaySeconds: 15          
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5006
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 5
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config    
+        - secretRef:
+            name: globoticket-common-secrets

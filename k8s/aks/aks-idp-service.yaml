@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-globoticket-services-idp
+  namespace: globoticket
+  labels:
+    version: dev
+    product: globoticket-services-idp
+spec:
+  type: LoadBalancer
+  selector:
+    app: globoticket-services-idp
+  ports:
+  - name: http
+    port: 5020
+    targetPort: 5020    
+  - name: https
+    port: 5021
+    targetPort: 5021

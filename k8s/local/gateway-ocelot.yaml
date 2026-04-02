@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-globoticket-gateway-ocelot
+  labels:
+    version: dev
+    product: globoticket-gateway-ocelot
+spec:
+  type: NodePort
+  selector:
+    app: globoticket-gateway-ocelot
+  ports:
+  - name: http
+    port: 5050
+    targetPort: 5050
+    nodePort: 30050
+  - name: https
+    port: 5051
+    targetPort: 5051
+    nodePort: 30051
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-gateway-ocelot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-gateway-ocelot
+  template:
+    metadata:
+      labels:
+        app: globoticket-gateway-ocelot
+    spec:
+      containers:
+      - name: globoticket-gateway-ocelot
+        image: globoticket-gateway-ocelot
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5050
+        - containerPort: 5051
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5050
+          failureThreshold: 30
+          timeoutSeconds: 3
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5050
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+          periodSeconds: 10          
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5050
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 5
+
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - configMapRef:
+            name: globoticket-gateway-ocelot-config
+        - secretRef:
+            name: globoticket-gateway-ocelot-secrets
+
+        env:
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+          value: /https/globoticket-idp.pfx
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+          value: idpdevcert!
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Kubernetes
+
+        volumeMounts:
+        - name: https-certs
+          mountPath: /https
+          readOnly: true
+
+      volumes:
+      - name: https-certs
+        hostPath:
+          path: "/run/desktop/mnt/host/c/Users/Jonathan Boening/.aspnet/https"

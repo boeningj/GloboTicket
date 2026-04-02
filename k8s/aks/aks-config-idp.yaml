@@ -1,0 +1,7 @@
+apiVersion: v1
+data:  
+  CLIENTURLS__BASEURL: https://globoticket-client.azurewebsites.net
+kind: ConfigMap
+metadata:
+  name: globoticket-idp-config
+  namespace: globoticket

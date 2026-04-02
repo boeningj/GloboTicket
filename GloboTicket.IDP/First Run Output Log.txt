@@ -1,0 +1,210 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.IDP> dotnet build
+  Determining projects to restore...
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+  All projects are up-to-date for restore.
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+  GloboTicket.IDP -> D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-n
+  et-core\05\demos\Resiliency\GloboTicket.IDP\bin\Debug\net8.0\GloboTicket.IDP.dll
+
+Build succeeded.
+
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+    4 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.72
+PS D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.IDP> dotnet run
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1902: Package 'Duende.IdentityServer' 7.0.0 has a known moder
+ate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98
+D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resi
+liency\GloboTicket.IDP\GloboTicket.IDP.csproj : warning NU1901: Package 'Duende.IdentityServer' 7.0.0 has a known low s
+everity vulnerability, https://github.com/advisories/GHSA-v9xq-2mvm-x8xc
+[21:50:54 Information]
+Starting up GloboTicket.IDP
+
+[21:50:54 Information] Duende.IdentityServer.Startup
+Starting Duende IdentityServer version 7.0.0+2f7360ca39ed849ea5ca7c501edf404be7286722 (.NET 8.0.20)
+
+[21:50:55 Warning] Duende.IdentityServer.License
+You do not have a valid license key for the Duende software. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
+
+[21:50:55 Warning] Duende.IdentityServer.License
+You have automatic key management enabled, but you do not have a license. This feature requires the Business or Enterprise Edition tier of license. Alternatively you can disable automatic key management by setting the KeyManagement.Enabled property to false on the IdentityServerOptions.
+
+[21:50:55 Information] Duende.IdentityServer.Startup
+You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+
+[21:50:55 Information] Duende.IdentityServer.Startup
+Using the default authentication scheme idsrv for IdentityServer
+
+[21:50:55 Debug] Duende.IdentityServer.Startup
+Using idsrv as default ASP.NET Core scheme for authentication
+
+[21:50:55 Debug] Duende.IdentityServer.Startup
+Using idsrv as default ASP.NET Core scheme for sign-in
+
+[21:50:55 Debug] Duende.IdentityServer.Startup
+Using idsrv as default ASP.NET Core scheme for sign-out
+
+[21:50:55 Debug] Duende.IdentityServer.Startup
+Using idsrv as default ASP.NET Core scheme for challenge
+
+[21:50:55 Debug] Duende.IdentityServer.Startup
+Using idsrv as default ASP.NET Core scheme for forbid
+
+[21:50:55 Information] Microsoft.Hosting.Lifetime
+Now listening on: https://localhost:5020
+
+[21:50:55 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[21:50:55 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[21:50:55 Information] Microsoft.Hosting.Lifetime
+Content root path: D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.IDP
+
+[21:51:31 Debug] Duende.IdentityServer.Startup
+Login Url: /Account/Login
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+Login Return Url Parameter: ReturnUrl
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+Logout Url: /Account/Logout
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+ConsentUrl Url: /consent
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+Consent Return Url Parameter: returnUrl
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+Error Url: /home/error
+
+[21:58:38 Debug] Duende.IdentityServer.Startup
+Error Id Parameter: errorId
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Information] Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler
+idsrv was not authenticated. Failure message: Unprotect ticket failed
+
+[21:58:38 Debug] Duende.IdentityServer.Hosting.EndpointRouter
+Request path /.well-known/openid-configuration matched to endpoint type Discovery
+
+[21:58:38 Debug] Duende.IdentityServer.Hosting.EndpointRouter
+Endpoint enabled: Discovery, successfully created handler: Duende.IdentityServer.Endpoints.DiscoveryEndpoint
+
+[21:58:38 Information] Duende.IdentityServer.Hosting.IdentityServerMiddleware
+Invoking IdentityServer endpoint: Duende.IdentityServer.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+
+[21:58:38 Debug] Duende.IdentityServer.Endpoints.DiscoveryEndpoint
+Start discovery request
+
+[21:58:38 Error] Duende.IdentityServer.Services.KeyManagement.KeyManager
+Error unprotecting the IdentityServer signing key with kid 2829053BF28577A29FC303153E75FDB4. This is likely due to the ASP.NET Core data protection key that was used to protect it is not available. This could occur because data protection has not been configured properly for your load balanced environment, or the IdentityServer signing key store was populated with keys from a different environment with different ASP.NET Core data protection keys. Once you have corrected the problem and if you keep getting this error then it is safe to delete the specific IdentityServer signing key with that kid.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at Duende.IdentityServer.Services.KeyManagement.DataProtectionKeyProtector.Unprotect(SerializedKey key) in /_/src/IdentityServer/Services/Default/KeyManagement/DataProtectionKeyProtector.cs:line 56
+   at Duende.IdentityServer.Services.KeyManagement.KeyManager.<GetAllKeysFromStoreAsync>b__20_0(SerializedKey x) in /_/src/IdentityServer/Services/Default/KeyManagement/KeyManager.cs:line 435
+
+[21:58:38 Information] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP GET / responded 200 in 285550.2679 ms
+
+[21:58:38 Information] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP GET / responded 200 in 167082.9395 ms
+
+[21:58:38 Information] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP GET / responded 200 in 426670.3110 ms
+
+[21:58:38 Error] Duende.IdentityServer.Services.KeyManagement.KeyManager
+Error unprotecting the IdentityServer signing key with kid 2829053BF28577A29FC303153E75FDB4. This is likely due to the ASP.NET Core data protection key that was used to protect it is not available. This could occur because data protection has not been configured properly for your load balanced environment, or the IdentityServer signing key store was populated with keys from a different environment with different ASP.NET Core data protection keys. Once you have corrected the problem and if you keep getting this error then it is safe to delete the specific IdentityServer signing key with that kid.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at Duende.IdentityServer.Services.KeyManagement.DataProtectionKeyProtector.Unprotect(SerializedKey key) in /_/src/IdentityServer/Services/Default/KeyManagement/DataProtectionKeyProtector.cs:line 56
+   at Duende.IdentityServer.Services.KeyManagement.KeyManager.<GetAllKeysFromStoreAsync>b__20_0(SerializedKey x) in /_/src/IdentityServer/Services/Default/KeyManagement/KeyManager.cs:line 435
+
+[21:58:38 Debug] Duende.IdentityServer.Services.KeyManagement.KeyManager
+Created and stored new key with kid 1B0BFD340B3511F9925432DD474CD28C.
+
+[21:58:43 Error] Duende.IdentityServer.Services.KeyManagement.KeyManager
+Error unprotecting the IdentityServer signing key with kid 2829053BF28577A29FC303153E75FDB4. This is likely due to the ASP.NET Core data protection key that was used to protect it is not available. This could occur because data protection has not been configured properly for your load balanced environment, or the IdentityServer signing key store was populated with keys from a different environment with different ASP.NET Core data protection keys. Once you have corrected the problem and if you keep getting this error then it is safe to delete the specific IdentityServer signing key with that kid.
+System.Security.Cryptography.CryptographicException: The payload was invalid. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Unprotect(IDataProtector protector, String protectedData)
+   at Duende.IdentityServer.Services.KeyManagement.DataProtectionKeyProtector.Unprotect(SerializedKey key) in /_/src/IdentityServer/Services/Default/KeyManagement/DataProtectionKeyProtector.cs:line 56
+   at Duende.IdentityServer.Services.KeyManagement.KeyManager.<GetAllKeysFromStoreAsync>b__20_0(SerializedKey x) in /_/src/IdentityServer/Services/Default/KeyManagement/KeyManager.cs:line 435
+
+[21:58:43 Information] Duende.IdentityServer.Services.KeyManagement.KeyManager
+Active signing key found with kid 1B0BFD340B3511F9925432DD474CD28C for alg RS256. Expires in 89.23:59:54.8724899. Retires in 103.23:59:54.8724899
+
+[21:58:43 Information] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP GET /.well-known/openid-configuration responded 200 in 137684.9523 ms
+
+[21:58:43 Information] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP GET /favicon.ico responded 200 in 14.8898 ms
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-integrationeventpublisher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-integrationeventpublisher
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-integrationeventpublisher
+    spec:
+      containers:
+      - name: globoticket-services-integrationeventpublisher
+        image: globoticket-integrationeventpublisher
+        imagePullPolicy: Never        
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - secretRef:
+            name: globoticket-common-secrets

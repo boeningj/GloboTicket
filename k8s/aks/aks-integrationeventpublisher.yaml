@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-integrationeventpublisher
+  namespace: globoticket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-integrationeventpublisher
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-integrationeventpublisher
+    spec:
+      containers:
+      - name: globoticket-services-integrationeventpublisher
+        image: globoticket.azurecr.io/globoticket-integrationeventpublisher:1.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"      
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - secretRef:
+            name: globoticket-common-secrets

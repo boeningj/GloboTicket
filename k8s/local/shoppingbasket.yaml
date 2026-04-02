@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-globoticket-services-shoppingbasket
+  labels:
+    version: dev
+    product: globoticket-services-shoppingbasket
+spec:
+  type: ClusterIP
+  selector:
+    app: globoticket-services-shoppingbasket
+  ports:
+  - port: 5002
+    targetPort: 5002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-shoppingbasket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-shoppingbasket
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-shoppingbasket
+    spec:
+      containers:
+      - name: globoticket-services-shoppingbasket
+        image: globoticket-shoppingbasket
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5002
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5002
+          failureThreshold: 30
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5002
+          initialDelaySeconds: 15
+          timeoutSeconds: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5002
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - configMapRef:
+            name: globoticket-shoppingbasket-config
+        - secretRef:
+            name: globoticket-common-secrets
+        - secretRef:
+            name: globoticket-shoppingbasket-secrets

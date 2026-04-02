@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-globoticket-services-idp
+  labels:
+    version: dev
+    product: globoticket-services-idp
+spec:
+  type: NodePort
+  selector:
+    app: globoticket-services-idp
+  ports:
+  - name: http
+    port: 5020
+    targetPort: 5020
+    nodePort: 30020
+  - name: https
+    port: 5021
+    targetPort: 5021
+    nodePort: 30021
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-idp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-idp
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-idp
+    spec:
+      containers:
+      - name: globoticket-services-idp
+        image: globoticket-idp
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5020
+        - containerPort: 5021
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5020
+          failureThreshold: 30
+          timeoutSeconds: 3
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5020
+          initialDelaySeconds: 20
+          timeoutSeconds: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5020
+          initialDelaySeconds: 10
+          timeoutSeconds: 3
+          periodSeconds: 5
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - configMapRef:
+            name: globoticket-idp-config
+        - secretRef:
+            name: globoticket-idp-secrets
+        env:
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+          value: /https/globoticket-idp.pfx
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+          value: idpdevcert!
+        volumeMounts:
+        - name: idp-keys
+          mountPath: /app/keys
+        - name: https-certs
+          mountPath: /https
+          readOnly: true
+
+      volumes:
+      - name: idp-keys
+        hostPath:
+          path: "/run/desktop/mnt/host/d/home.jonathan/Documents/Pluralsight/ASP.NET Microservices/microservices-communication-asp-dot-net-core/05/demos/Resiliency/GloboTicket.IDP/keys"
+
+      - name: https-certs
+        hostPath:
+          path: "/run/desktop/mnt/host/c/Users/Jonathan Boening/.aspnet/https"

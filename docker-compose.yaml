@@ -1,0 +1,163 @@
+name: globoticket
+
+networks:
+  globoticket-network:
+    name: globoticket-network
+
+services:
+
+  globoticket-idp:
+    image: globoticket-idp    
+    build:
+      context: .
+      dockerfile: GloboTicket.IDP/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.idp.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5020:5020"
+      - "5021:5021"
+    volumes:
+      - ./GloboTicket.IDP/keys:/app/keys
+      - ${USERPROFILE}/.aspnet/https:/https:ro
+    environment:
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/globoticket-idp.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Password: idpdevcert!
+
+  globoticket-eventcatalog:
+    image: globoticket-eventcatalog
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.EventCatalog/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.eventcatalog.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5001:5001"
+    depends_on:
+      - globoticket-idp
+
+  globoticket-shoppingbasket:
+    image: globoticket-shoppingbasket
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.ShoppingBasket/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.shoppingbasket.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5002:5002"
+    depends_on:
+      - globoticket-idp
+      - globoticket-eventcatalog
+
+  globoticket-discount:
+    image: globoticket-discount
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.Discount/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.discount.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5007:5007"
+
+  globoticket-ordering:
+    image: globoticket-ordering
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.Order/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.order.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5005:5005"
+    depends_on:
+      - globoticket-idp
+      - globoticket-shoppingbasket
+
+  globoticket-externalpaymentgateway:
+    image: globoticket-externalpaymentgateway
+    build:
+      context: .
+      dockerfile: External.PaymentGateway/Dockerfile
+    env_file:
+      - .env.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5004:5004"
+
+  globoticket-payment:
+    image: globoticket-payment
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.Payment/Dockerfile
+    env_file:
+      - .env.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5006:5006"
+    depends_on:
+      - globoticket-ordering
+
+  globoticket-marketing:
+    image: globoticket-marketing
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.Marketing/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.marketing.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5008:5008"
+
+  globoticket-integrationeventpublisher:
+    image: globoticket-integrationeventpublisher
+    build:
+      context: .
+      dockerfile: GloboTicket.Services.IntegrationEventPublisher/Dockerfile
+    env_file:
+      - .env.docker
+    networks:
+      - globoticket-network
+    depends_on:
+      - globoticket-ordering
+
+  globoticket-gateway-ocelot:
+    image: globoticket-gateway-ocelot
+    build:
+      context: .
+      dockerfile: GloboTicket.Gateway.Ocelot/Dockerfile
+    env_file:
+      - .env.docker
+      - .env.gateway.ocelot.docker
+    networks:
+      - globoticket-network
+    ports:
+      - "5050:5050"
+      - "5051:5051"
+    volumes:
+      - ${USERPROFILE}/.aspnet/https:/https:ro
+    environment:
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/globoticket-idp.pfx
+      ASPNETCORE_Kestrel__Certificates__Default__Password: idpdevcert!
+      ASPNETCORE_ENVIRONMENT: Docker
+    depends_on:
+      - globoticket-idp
+      - globoticket-eventcatalog
+      - globoticket-shoppingbasket
+      - globoticket-ordering

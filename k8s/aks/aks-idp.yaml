@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-services-idp
+  namespace: globoticket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-services-idp
+  template:
+    metadata:
+      labels:
+        app: globoticket-services-idp
+    spec:
+      containers:
+      - name: globoticket-services-idp
+        image: globoticket.azurecr.io/globoticket-idp:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5020
+        - containerPort: 5021
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5020
+          failureThreshold: 30
+          timeoutSeconds: 3
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5020
+          initialDelaySeconds: 20
+          timeoutSeconds: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5020
+          initialDelaySeconds: 10
+          timeoutSeconds: 3
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "250m"
+            memory: "128Mi"
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - configMapRef:
+            name: globoticket-idp-config
+        - secretRef:
+            name: globoticket-idp-secrets
+        env:
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+          value: /https/globoticket.pfx
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+          value: globoTicketAKS2026!
+        - name: ASPNETCORE_URLS
+          value: "https://+:5021;http://+:5020"
+        volumeMounts:
+        - name: idp-keys
+          mountPath: /app/keys
+        - name: https-certs
+          mountPath: /https
+          readOnly: true
+
+      volumes:
+      - name: idp-keys
+        emptyDir: {}
+
+      - name: https-certs
+        secret:
+          secretName: globoticket-cert

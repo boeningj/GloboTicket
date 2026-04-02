@@ -1,0 +1,241 @@
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:5050
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.Gateway.Ocelot
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/baskets/{all}
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/categories
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/events
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      The path '/eventcatalog/api/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      The path '/shoppingbasket/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      The path '/eventcatalog/api/events' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/events' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/shoppingbasket/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/categories' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/events
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /shoppingbasket/api/baskets/{all}
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/categories
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token NOT in cache, requesting new token for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token NOT in cache, requesting new token for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.ShoppingBasketTokenExchangeHandler[0]
+      Token NOT in cache, requesting new token for scope 'gatewaytodownstreamtokenexchangeclient:shoppingbasket:openid profile shoppingbasket.fullaccess'
+info: GloboTicket.Gateway.DelegatingHandlers.ShoppingBasketTokenExchangeHandler[0]
+      Fetching discovery document for ShoppingBasketTokenExchangeHandler from IdentityServer...
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Fetching discovery document for EventCatalogTokenExchangeHandler from IdentityServer...
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Fetching discovery document for EventCatalogTokenExchangeHandler from IdentityServer...
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 21.9483ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 21.6212ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 22.6209ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 29.617ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 29.6778ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 29.6477ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 21.1071ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 21.1532ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 21.2546ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 21.189ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 21.6534ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 21.6975ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 67.7463ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 67.8656ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 72.8295ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 72.8931ms - 200
+info: GloboTicket.Gateway.DelegatingHandlers.ShoppingBasketTokenExchangeHandler[0]
+      New token fetched and cached for scope 'gatewaytodownstreamtokenexchangeclient:shoppingbasket:openid profile shoppingbasket.fullaccess'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      New token fetched and cached for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 84.2181ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 84.3221ms - 200
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      New token fetched and cached for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+warn: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000001, PreviousRequestId: -
+      404 Not Found status code of request URI: https://localhost:5002/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000001, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/categories
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000001, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/events
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/baskets/{all}
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/categories
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/events
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      The path '/eventcatalog/api/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      The path '/shoppingbasket/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      The path '/eventcatalog/api/events' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/shoppingbasket/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/categories' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/events' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/categories
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /shoppingbasket/api/baskets/{all}
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/events
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token returned from cache for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.ShoppingBasketTokenExchangeHandler[0]
+      Token returned from cache for scope 'gatewaytodownstreamtokenexchangeclient:shoppingbasket:openid profile shoppingbasket.fullaccess'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token returned from cache for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+warn: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CN:00000002, PreviousRequestId: -
+      404 Not Found status code of request URI: https://localhost:5002/api/baskets/d25ec563-c25b-4aa1-8a9b-b9575f01d63e
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CO:00000002, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/events
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIPD8B386CP:00000002, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/categories

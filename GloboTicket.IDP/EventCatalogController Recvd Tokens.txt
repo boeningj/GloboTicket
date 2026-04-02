@@ -1,0 +1,785 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.Client
+info: GloboTicket.Web.Controllers.EventCatalogController[0]
+      Identity token & user claims:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY1NDM4Mjc3LCJpYXQiOjE3NjU0MzgyNzcsImV4cCI6MTc2NTQzODU3NywiYXVkIjoiZ2xvYm90aWNrZXRpbnRlcmFjdGl2ZSIsImFtciI6WyJwd2QiXSwibm9uY2UiOiI2MzkwMTAzNTAyNTM1MDIwODQuTURGaU1qYzJNR1l0T1dVeVl5MDBOekV3TFdKbE5XWXRNVEprTm1VMk1ERTRaV00zWWpNNVpEQXhZbUl0TkdNMk15MDBaamhsTFdKak5URXRNamsxTVRnNFpEZzVOR014IiwiYXRfaGFzaCI6IlN3bnpkc0ZUQ0w1aXRObmZMNTNEeVEiLCJzaWQiOiI0MjgwRjNGNEY2QzdCRERENjU3MDVEQkNCMEY4REM0RiIsInN1YiI6ImU0NTVhM2RmLTdmYTUtNDdlMC04NDM1LTE3OWIzMDBkNTMxZiIsImF1dGhfdGltZSI6MTc2NTQzODI3NywiaWRwIjoibG9jYWwifQ.shkyPgnCYoQ0YTuIh18iX-WVsNsqESisu5r9-r6lm25oUDccieEWKs4dGdf4X1_HRnN0EDvTlMCzS3T_RShuynC0MRTyWWN5xSdHJ5krTNicv3m_koa3PnZYcYl3qCWlrSgTW74PKozjB-rKXgw-Q6-ktB0lyOROmWTRIenMPpDNpr2eNyn5T_CzMXHVgV76QvPjT17lcMRwYASj0_8ifBiRCyp5Yeq3SMI2Em-ngtZqOa_ICBjdvPYX7CcNY0Oby9OLl_pYHsr7oDTan3uGnc_EaoPop35Y9udpMTEv3hTHmWBAhbd5viDObwpJ5vr70DK5jzX_vRecm6zFZK3FUA
+Claim type: http://schemas.microsoft.com/claims/authnmethodsreferences - Claim value: pwd
+      Claim type: sid - Claim value: 4280F3F4F6C7BDDD65705DBCB0F8DC4F
+      Claim type: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier - Claim value: e455a3df-7fa5-47e0-8435-179b300d531f
+      Claim type: auth_time - Claim value: 1765438277
+      Claim type: http://schemas.microsoft.com/identity/claims/identityprovider - Claim value: local
+      Claim type: name - Claim value: Alice Smith
+      Claim type: given_name - Claim value: Alice
+      Claim type: family_name - Claim value: Smith
+
+info: GloboTicket.Web.Controllers.EventCatalogController[0]
+      Access token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY1NDM4Mjc3LCJpYXQiOjE3NjU0MzgyNzcsImV4cCI6MTc2NTQ0MTg3NywiYXVkIjpbImdsb2JvdGlja2V0IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAyMC9yZXNvdXJjZXMiXSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsImdsb2JvdGlja2V0LmZ1bGxhY2Nlc3MiXSwiYW1yIjpbInB3ZCJdLCJjbGllbnRfaWQiOiJnbG9ib3RpY2tldGludGVyYWN0aXZlIiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY1NDM4Mjc3LCJpZHAiOiJsb2NhbCIsInNpZCI6IjQyODBGM0Y0RjZDN0JEREQ2NTcwNURCQ0IwRjhEQzRGIiwianRpIjoiQjQwMEE0NDM5NjNDNEU1MDgwM0U0MTYzOEMzRDg3MTkifQ.4sc8RMwS6Fb9HuCtimJTLDv-qIe6SFV7mw5TuN7qvy4oqlJvb37p0Ip1CAKvDZ9bsSozhHfTHkC1KBMIcgOOjbY-zFT2bIdXrGOPaTm0CP2eq6rplIhm3Uo00jkAxbP2UNljDS8iQ0SP-8iNZA2YdquWh3TSiH4HUNzCGQcovx8g2di2rwJjVg0AC5W4TMULrX5tkDJ5_NDm8u-eUGB3Y-7Szp0QN4hgr0-OPz3lRMEDeDpEercM5IFtmfqi-Q1MCmM4WOCGn-PNwDgr5DaoUB_4Q6cyn4_3xNeyFZxs4vaz8zZ0PQnLKCmEG9lAQ3BJ3zi5xBgqkxIiUTQ5A81hWw
+info: GloboTicket.Web.Controllers.EventCatalogController[0]
+      Refresh token:
+
+Access Token:
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1765438277,
+  "iat": 1765438277,
+  "exp": 1765441877,
+  "aud": [
+    "globoticket",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticket.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractive",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1765438277,
+  "idp": "local",
+  "sid": "4280F3F4F6C7BDDD65705DBCB0F8DC4F",
+  "jti": "B400A443963C4E50803E41638C3D8719"
+}
+
+
+https://localhost:5020/connect/authorize/callback?
+client_id=globoticketinteractive&redirect_uri=https%3A%2F%2Flocalhost%3A5000%2Fsignin-oidc&response_type=code&scope=openid%20profile%20globoticket.fullaccess&code_challenge=ZNT8hD90b-wI0NzDJJRwt8EPaSvT3yF6rPHqxgHlfbw&code_challenge_method=S256&response_mode=form_post&nonce=639011108992812257.ZGVlMTlmYzctZGU4MS00ODIwLWI2ZGUtYWE5NTBiNTQwYzM3NmEyYmUwNmQtNDcyNy00NmI2LThhZTUtYTY1Y2ZiNjc1NGVj&state=CfDJ8PuGOr3R-M5AlIOmPN94SxgoJIu6whkLoVihYpbx8Al0kYIXWyNdRBJ7_fSbis2U_JC68Pdqt9eXA5lV1qIvcZtrjtxusbwXcqnCgTK7ZauCKm7ztTWix47tF-rG-VPfHcQd6WGq-jWhG2XMzjt2eoTagnRss9EwPi-MD27tWnS23KwAZrB9IqqsgtYLDKljUjVUjhO8LglRWYu_wosbUECRnwUDlmnKp8Z8wfMlC-GMrlTZXaKFJhW7ze10NhEvll0JpUVbb0HhhFhnHHd1QaIS3vZGa-UBXUO2SudeelgFzUpfdVcX3KZolDurRNoiv9njNZXEluzUrnpX9t7ua8O0Mk47yw-QL3_W4r9cMx7PTVMcYX0DWej8PShPvJs7-A&x-client-SKU=ID_NET8_0&x-client-ver=7.1.2.0
+
+
+
+
+
+Yes it got cutoff.  if I change this:
+new ApiResource("eventcatalog", "Event catalog API")
+            {
+                Scopes = { "eventcatalog.read", "eventcatalog.write" }
+            },
+to thie:
+new ApiResource("eventcatalog", "Event catalog API")
+            {
+                Scopes = { "eventcatalog.fullaccess" }
+            },
+
+Does that then break:
+case "AccessTokens":
+                    // Required when auth is ON - .AddAuthentication no longer implicitly calls in .net 8
+                    services.AddAuthorization(options =>
+                    {
+                        options.AddPolicy("CanRead", policy =>
+                        {
+                            policy.RequireAuthenticatedUser();
+                            policy.RequireClaim("scope", "eventcatalog.read");
+                        });
+
+                        options.AddPolicy("CanWrite", policy =>
+                        {
+                            policy.RequireAuthenticatedUser();
+                            policy.RequireClaim("scope", "eventcatalog.write");
+                        });
+                    });  
+
+                    services.Configure<MvcOptions>(options =>
+                    {
+                        options.Filters.Add(new AuthorizeFilter(requireAuthenticatedUserPolicy));
+                    });
+
+
+                    // NOTE:  Prior to .NET 8.0, this was defined in JWT security token handler
+                    JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+                    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                        .AddJwtBearer(options =>
+                        {
+                            options.Authority = "https://localhost:5020";
+                            options.Audience = "eventcatalog";
+                            options.TokenValidationParameters = new()
+                            {
+                                NameClaimType = JwtClaimTypes.GivenName,
+                                RoleClaimType = JwtClaimTypes.Role,
+                                ValidTypes = new[] { "at+jwt" }
+                            };
+                        });
+                        // .AddOAuth2Introspection(options =>
+                        // {
+                        //     options.Authority = "https://localhost:5020";
+                        //     options.ClientId = "imagegalleryapi";
+                        //     options.ClientSecret = "apisecret";
+                        //     options.NameClaimType = "given_name";
+                        //     options.RoleClaimType = "role";
+                        // });                    
+                    break;
+
+
+
+Option 2 — Fully commit to gateway ownership (cleaner, more advanced)
+
+Remove shoppingbasket.fullaccess from the client and:
+
+Add TokenExchangeDelegatingHandler for ShoppingBasket routes
+
+Configure a downstream exchange scope (e.g. shoppingbasket.fullaccess)
+
+Update gateway client AllowedScopes
+
+Update token exchange request to request basket scope when needed
+
+This is more work — Kevin gets there later.
+
+
+
+You need to update allowedScopes in TokenExchangeExtensionGrantValidator to include the scopes the gateway is requesting for EventCatalog:
+var allowedScopes = new[] { "discount.fullaccess", "eventcatalog.read", "eventcatalog.write" };
+
+Then:
+The exchanged token will include the correct scopes.
+Ocelot can enforce AllowedScopes if you add them back.
+EventCatalog will see the proper scopes in the token and allow access.
+
+Client Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NTI5ODU4LCJpYXQiOjE3Njg1Mjk4NTgsImV4cCI6MTc2ODUzMzQ1OCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsInNob3BwaW5nYmFza2V0IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAyMC9yZXNvdXJjZXMiXSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsImdsb2JvdGlja2V0Z2F0ZXdheS5mdWxsYWNjZXNzIiwic2hvcHBpbmdiYXNrZXQuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NTI5ODU4LCJpZHAiOiJsb2NhbCIsInNpZCI6IkRGMEE1MUI0RjVCQzJFQ0ZCODY5QjdFMDI1QzM3NTA3IiwianRpIjoiNDIwRDAxREM1QzQyQkMwQTdCQzcxN0Y5MDNFN0RGRjYifQ.LmVSjX5ppDjBBrCJkdS-DNEH4G2AsCi4RVXug5LC4hFNeGL4Y-WE95Zf1377wQPlHyub_RMug9CDOn23CtkxJQsCqqxC5w1vGBSkma50HJ_XGNtZhpPdzNaJ75CU5i8PWTLI9JN66XBN-Y49EfQ9hXovhbLe0vfHNzaAfPdDZYD0CtDpRWZ19e3LA2jJnvMjW3c5bxnclY83MckaIQeFvpRFC7qX5cHght6U7KpuNrVo_Q44oGS-1fSvj817rknpCWlcaRqHpfjO5RRg5riz1w5W9v1XKVu7dF4CLlFD8iQmHeNMVHLpTL--l8o8YY10NSBwdgIDHhBSvMPJDOvTig
+
+Exchange Token for EventCatalog:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NTI5ODU5LCJpYXQiOjE3Njg1Mjk4NTksImV4cCI6MTc2ODUzMzQ1OSwiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwiZXZlbnRjYXRhbG9nLndyaXRlIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIiwicHdkIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NTI5ODU5LCJpZHAiOiJsb2NhbCIsImp0aSI6IjQzQ0RBMjk0QjVDNEU2ODE4NkM2Rjc3QTk4OTQwN0I2In0.IdeEOM4IWNK3Z72X-bKzw-PlnOlNA_0sGZRELraultmMuE3lv-W1TtloFeqwE0RUTR5x41mN27zqp-YDbMu_4j8KvNqrMwQMn2M4xb3c8a-c4oG978D4DcA4RKszoU3VH_dAndPa32-JD195mT1htX2-G-FlzWmvSeMyYj93YNFBPJZ6EgfvWVNDbLdFaMQcXUcyTKVKwvEfzlI_VLdfENcGzzYB6I0N9O8-1Y2uQMlaUa2K1j3WZBIH1G3TSiAc_HOUTruLGPjAyvjA03lsXUIBpHS9HfDcmE4ZW84Ll1ODGWALT_JFfboZIe322fKqjtCriydI3Dh2wdU2nREhuw
+
+
+
+TokenExchangeDelegatingHandler works — it can request a token with arbitrary scopes (if allowed by IdentityServer).
+
+
+AllowedScopes in IdentityServer client config matter — without adding shoppingbasket.fullaccess to the token exchange client, you couldn’t even mint that token.
+
+
+the next logical step is to:
+Add one client per downstream API to keep scopes clean, e.g.:
+
+gateway→eventcatalog → only eventcatalog.read/write
+gateway→shoppingbasket → only shoppingbasket.fullaccess
+
+This prevents accidental over-permissioning and keeps your APIs safe.
+
+if (requestedScopes == null)
+        {
+            context.Result = new GrantValidationResult(TokenRequestErrors.InvalidRequest, "Requested scope(s) are not allowed.");
+            return;
+        }
+
+
+If you want, the next step could be adding logging or metrics for token exchanges and HttpClient calls so you can easily see when scopes/audience mismatches happen in the future.
+
+
+
+
+GloboTicket Client Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NjUxNTM4LCJpYXQiOjE3Njg2NTE1MzgsImV4cCI6MTc2ODY1NTEzOCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NjUxNTM4LCJpZHAiOiJsb2NhbCIsInNpZCI6IjVCRjE4RjBCNjI1REIwMTk3REVDQUE2NTRCNTMzOUM5IiwianRpIjoiOUNBNjlFMTBFRkQ3NjkyRURFREIyQTMzOTlDMDMyMjcifQ.Ws2bQA8y1nhvP0K79532sbuJbDiHnxzdIyC8ItuNPjx3ulMpbnUv8Zao_WuVi2pyDFmbVqfwRcS5wwVT6YZWAaA49pM1uE2hhrKXt1ZodIdBJJ7BFhEKlrFXRV_Ylsr7IZBTuAQK67BrHb3kWOwjsL3Qvf6jveSj_V2RnLtsb0ICATsn-E8y-qnKdTXXCqRayJ-w_7HVnsCIlgyQZLkF0iXZlxArEM8XpsvSKofhYBSpQZFbISeC2eiqbkK0AbJRrT-xun4KOGDrhPAz3EugBpLR_mlIuKqLw-F83y-X9jo6hMUxh5_XBW3snaDA44qvoNO95ugp_x7r3WoPLW-hlA
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768651538,
+  "iat": 1768651538,
+  "exp": 1768655138,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768651538,
+  "idp": "local",
+  "sid": "5BF18F0B625DB0197DECAA654B5339C9",
+  "jti": "9CA69E10EFD7692EDEDB2A3399C03227"
+}
+
+Exchanged Token for EventCatalog:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NjUxNTM5LCJpYXQiOjE3Njg2NTE1MzksImV4cCI6MTc2ODY1NTEzOSwiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwiZXZlbnRjYXRhbG9nLndyaXRlIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NjUxNTM5LCJpZHAiOiJsb2NhbCIsImp0aSI6IjE1NjBFNDVENEJDMDZDMEREOTUyODI5Nzc5M0ExQjIwIn0.gSLvhSFLzonTBCr6UMQl2TCzrr2uuRF_p6PUaGfTGmluXHEW9Cyw98X5Z71ajBnJ8JUn3Me35jeLMLR7a_Un-upSg9XXzZf2UXK5Yv9dvwZ9nKgwvck2xqLD09C82uaof8fRPTd6ZZu8Il-tc6SMU7n4yzjh7XioYwW7VP-BU-JtVy8DueQC_m_eTfnk5c4UWLC9fkvIshvJxpT6tbeSuLWXPvQ7MxXFWAG2puYTC9rMNu6WCNwZ87sIRAwGFAHcovl_q4DNYY-nfsEd2Ix_trCsDOgs-gh5ZAHstRvDHeXFark2oKHw2fkzHUqirnNglfqtXvqMlHfdxvZ0I26F5g
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768651539,
+  "iat": 1768651539,
+  "exp": 1768655139,
+  "aud": [
+    "eventcatalog",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "eventcatalog.read",
+    "eventcatalog.write",
+    "openid",
+    "profile"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768651539,
+  "idp": "local",
+  "jti": "1560E45D4BC06C0DD9528297793A1B20"
+}
+
+
+
+
+
+
+Client Access Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAwMzcyLCJpYXQiOjE3Njg3MDAzNzIsImV4cCI6MTc2ODcwMzk3MiwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAwMzcyLCJpZHAiOiJsb2NhbCIsInNpZCI6Ijg1RkY4Mzk3MzkwRDM2OENFODA0RDJCQUFGMzg2MDJBIiwianRpIjoiNjBERTA5Mjg5RDI5RTU0NTQ2REVGMzFFMkRDQURFODYifQ.qUTgpf2b3m3-uZoaEcXvl8X78KJc0xDX6cv710aJLxfOc8XRMrhNZ5XGqKO00UuV2EdvpvLossFdgsx1LQHPSSHgpxy0p4SJjfPEISQgOhTm6344iiJKRK_CfZGIkPouLWZwkBtV5O4kEHMLM5Tc7GFQCOZ7HQGtLyrwA8XU8jfN3IeFb4P1W9WHqzD9YCa0nAfYW7K1IkrxjFf6YAEn0qvBPwZzXU8S2L_oAtsXV0s39MeBlW3boL0zf9lVDb7f-iSKdm4J3S3lt37M5lPoGN51qji5cJ4s7trMErDZHu7qy0c3bH441EFrKWcouZXIXUn3hQQprlYs85pBMUREig
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768700372,
+  "iat": 1768700372,
+  "exp": 1768703972,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768700372,
+  "idp": "local",
+  "sid": "85FF8397390D368CE804D2BAAF38602A",
+  "jti": "60DE09289D29E54546DEF31E2DCADE86"
+}
+
+Event Catalog Exchange Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAwMzczLCJpYXQiOjE3Njg3MDAzNzMsImV4cCI6MTc2ODcwMzk3MywiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwiZXZlbnRjYXRhbG9nLndyaXRlIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAwMzczLCJpZHAiOiJsb2NhbCIsImp0aSI6IjI1NUNFNDJCQ0NFMEFCMzQ4ODg0NjAxQzVDNTE1OTU4In0.BXj4WmdZ00Td0YnENEIjfVwUMqjaNukAnFLvgPoys-fPVjhyM3QEB3YJeowwk6gM-TOZDodNVQW3x5r2QTWDqm5b55JUMZWu7rk6OO9GBDNYzrJnNN9j2VuLoAiSOBxMlNxuXhOIqwXIKG51RBg-aMSusKSaz6LjLp_NYu02zZ4sonAS_9vF7TFQa9TyLly61YaNwf8EUI96oWZWy76ChvVI8iqP6t_w63dfL7HY93QIvwjMZUjaFDkfyTSMMM7xZqUeiQXesC16VEbG54kxQ6A5pYenmxwjSpZZCC-tOHk3sD-QILNbPRi1ILGMhjPNEleQx-Ot5Uyn3q7QP-9j9w
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768700373,
+  "iat": 1768700373,
+  "exp": 1768703973,
+  "aud": [
+    "eventcatalog",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "eventcatalog.read",
+    "eventcatalog.write",
+    "openid",
+    "profile"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768700373,
+  "idp": "local",
+  "jti": "255CE42BCCE0AB348884601C5C515958"
+}
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAwMzczLCJpYXQiOjE3Njg3MDAzNzMsImV4cCI6MTc2ODcwMzk3MywiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwiZXZlbnRjYXRhbG9nLndyaXRlIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAwMzczLCJpZHAiOiJsb2NhbCIsImp0aSI6IjAwQUYwQjQyM0E2MEZGOTlGQjk3RTk4NzAwMzAzN0FEIn0.a8Ca6k-O-nVmR_eYIpR8R44OX7gXS-XJvbJ9580430rV40qXyaYGEtmQrOKiSeY2LZf0OSbtBiQN8HfvcY1d1DqQ0o35jJTbAiI18lvgxQXW-r5LkFZnZBDPGv8cgEYvlVoAVTDhAQHLUvt8HnzLT-G7WSMBcCD2mSViJu7zdI07OWNf1-PKg-4kLskOWyD-DwKj27w_L3Q2j0gNIjFwS20D1b5MZrbERCQtmZIWYVDgSDn91HWHJaIM7DTGPfMSBmD2FdEZiNWvlMW1D7UuiEQ5ORdvmS0rPJvDXMEMvubxhYAK1u7U2pGjcyHHFDOYO-mAvFDFaiGQwBPiRmcTsg
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768700373,
+  "iat": 1768700373,
+  "exp": 1768703973,
+  "aud": [
+    "eventcatalog",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "eventcatalog.read",
+    "eventcatalog.write",
+    "openid",
+    "profile"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768700373,
+  "idp": "local",
+  "jti": "00AF0B423A60FF99FB97E987003037AD"
+}
+
+
+ShoppingBasket token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAwMzcyLCJpYXQiOjE3Njg3MDAzNzIsImV4cCI6MTc2ODcwMzk3MiwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAwMzcyLCJpZHAiOiJsb2NhbCIsInNpZCI6Ijg1RkY4Mzk3MzkwRDM2OENFODA0RDJCQUFGMzg2MDJBIiwianRpIjoiNjBERTA5Mjg5RDI5RTU0NTQ2REVGMzFFMkRDQURFODYifQ.qUTgpf2b3m3-uZoaEcXvl8X78KJc0xDX6cv710aJLxfOc8XRMrhNZ5XGqKO00UuV2EdvpvLossFdgsx1LQHPSSHgpxy0p4SJjfPEISQgOhTm6344iiJKRK_CfZGIkPouLWZwkBtV5O4kEHMLM5Tc7GFQCOZ7HQGtLyrwA8XU8jfN3IeFb4P1W9WHqzD9YCa0nAfYW7K1IkrxjFf6YAEn0qvBPwZzXU8S2L_oAtsXV0s39MeBlW3boL0zf9lVDb7f-iSKdm4J3S3lt37M5lPoGN51qji5cJ4s7trMErDZHu7qy0c3bH441EFrKWcouZXIXUn3hQQprlYs85pBMUREig
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768700372,
+  "iat": 1768700372,
+  "exp": 1768703972,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768700372,
+  "idp": "local",
+  "sid": "85FF8397390D368CE804D2BAAF38602A",
+  "jti": "60DE09289D29E54546DEF31E2DCADE86"
+}
+
+
+
+Back to using 2 different delegating handlers:
+Client Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAxOTkwLCJpYXQiOjE3Njg3MDE5OTAsImV4cCI6MTc2ODcwNTU5MCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAxOTkwLCJpZHAiOiJsb2NhbCIsInNpZCI6Ijk3REMyM0Q5OTdEQjQzQ0FDMEVDMkU2MkJGQTVFODBDIiwianRpIjoiQjEwMDhDNTQ3QTAxMDRBMEM5NzY0MkJCMkUzRDlGQTgifQ.j9og_8YQdiFt0OVDQzzWBFh7ed_qEFue6Ex5BjgmVCtCZzmOVRnmk3kyLvLhmkUgbgPYV6RX9zKyHx6baDdhQX_in5MXQ7Yx6RuoK3PEsY18KjfpduAXojsGh4wI3MT1JbQ2JKp95llfOtMw7iJVrm-nGN_9LIlvB7KLnD7XZ2I1U297iuK2JPdT7WsETy4V1vq-mf1_lNNOrXlJJGGtgrz8P69s_dS8Rgs_jG8q7yRabQa79ie0HznqT47xljiniRKgiBoVQlKjOKE5UbuPknrRdeNXpu_UgldQltR8bFsMIyLDc_g2HNYQZ6Mfjbvsv7if2egcW6uUkxnR4tFyOA
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768701990,
+  "iat": 1768701990,
+  "exp": 1768705590,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768701990,
+  "idp": "local",
+  "sid": "97DC23D997DB43CAC0EC2E62BFA5E80C",
+  "jti": "B1008C547A0104A0C97642BB2E3D9FA8"
+}
+
+EventCatalog received token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAxOTkwLCJpYXQiOjE3Njg3MDE5OTAsImV4cCI6MTc2ODcwNTU5MCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAxOTkwLCJpZHAiOiJsb2NhbCIsInNpZCI6Ijk3REMyM0Q5OTdEQjQzQ0FDMEVDMkU2MkJGQTVFODBDIiwianRpIjoiQjEwMDhDNTQ3QTAxMDRBMEM5NzY0MkJCMkUzRDlGQTgifQ.j9og_8YQdiFt0OVDQzzWBFh7ed_qEFue6Ex5BjgmVCtCZzmOVRnmk3kyLvLhmkUgbgPYV6RX9zKyHx6baDdhQX_in5MXQ7Yx6RuoK3PEsY18KjfpduAXojsGh4wI3MT1JbQ2JKp95llfOtMw7iJVrm-nGN_9LIlvB7KLnD7XZ2I1U297iuK2JPdT7WsETy4V1vq-mf1_lNNOrXlJJGGtgrz8P69s_dS8Rgs_jG8q7yRabQa79ie0HznqT47xljiniRKgiBoVQlKjOKE5UbuPknrRdeNXpu_UgldQltR8bFsMIyLDc_g2HNYQZ6Mfjbvsv7if2egcW6uUkxnR4tFyOA
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768701990,
+  "iat": 1768701990,
+  "exp": 1768705590,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768701990,
+  "idp": "local",
+  "sid": "97DC23D997DB43CAC0EC2E62BFA5E80C",
+  "jti": "B1008C547A0104A0C97642BB2E3D9FA8"
+}
+
+ShoppingBasket received token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAxOTkwLCJpYXQiOjE3Njg3MDE5OTAsImV4cCI6MTc2ODcwNTU5MCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAxOTkwLCJpZHAiOiJsb2NhbCIsInNpZCI6Ijk3REMyM0Q5OTdEQjQzQ0FDMEVDMkU2MkJGQTVFODBDIiwianRpIjoiQjEwMDhDNTQ3QTAxMDRBMEM5NzY0MkJCMkUzRDlGQTgifQ.j9og_8YQdiFt0OVDQzzWBFh7ed_qEFue6Ex5BjgmVCtCZzmOVRnmk3kyLvLhmkUgbgPYV6RX9zKyHx6baDdhQX_in5MXQ7Yx6RuoK3PEsY18KjfpduAXojsGh4wI3MT1JbQ2JKp95llfOtMw7iJVrm-nGN_9LIlvB7KLnD7XZ2I1U297iuK2JPdT7WsETy4V1vq-mf1_lNNOrXlJJGGtgrz8P69s_dS8Rgs_jG8q7yRabQa79ie0HznqT47xljiniRKgiBoVQlKjOKE5UbuPknrRdeNXpu_UgldQltR8bFsMIyLDc_g2HNYQZ6Mfjbvsv7if2egcW6uUkxnR4tFyOA
+
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768701990,
+  "iat": 1768701990,
+  "exp": 1768705590,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768701990,
+  "idp": "local",
+  "sid": "97DC23D997DB43CAC0EC2E62BFA5E80C",
+  "jti": "B1008C547A0104A0C97642BB2E3D9FA8"
+}
+
+
+
+Client Access Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAyNTY4LCJpYXQiOjE3Njg3MDI1NjgsImV4cCI6MTc2ODcwNjE2OCwiYXVkIjpbImdsb2JvdGlja2V0Z2F0ZXdheSIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJnbG9ib3RpY2tldGdhdGV3YXkuZnVsbGFjY2VzcyJdLCJhbXIiOlsicHdkIl0sImNsaWVudF9pZCI6Imdsb2JvdGlja2V0aW50ZXJhY3RpdmVnYXRld2F5Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAyNTY4LCJpZHAiOiJsb2NhbCIsInNpZCI6IjY4QjhGMDcxNjI3NEVBODkyRENFMEMwOTY0Njc1NUJEIiwianRpIjoiMzg0QzE3REZFQ0VDMzIzNUMyMkI2REFEMDI5RkY0QUQifQ.iDxGGoL_M9Co9mEi2IHwkh_YcH2QuEmSvkZ5wAxT3Keyvh0pZShmim0Dy_iXhg5DZDNv0AhMk_NPAdMUeTEDG2sinayL7j4b5BNGFqiaMnUQrsR_EvndDFSoz3PzWUfxq2N2J9-bDCAGd0sU-PbuQd5nUecr2veyvQbud7mKY2pFf_eYjswlcDPuVZNobPDGKvxnevmdIIE7VcklhvJEerXZO-NMMsw57pqiGEyaddlGgcWq5bhAhD1ixtOhNiaAIAET5jZHcOXUqaO4Q06xmDY6_xifheoPEyjons6LGZ6WXf1h8CfkDIifRquVdkNEqYhOZh3RMRONXCNjUAq-yg
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768702568,
+  "iat": 1768702568,
+  "exp": 1768706168,
+  "aud": [
+    "globoticketgateway",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "globoticketgateway.fullaccess"
+  ],
+  "amr": [
+    "pwd"
+  ],
+  "client_id": "globoticketinteractivegateway",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768702568,
+  "idp": "local",
+  "sid": "68B8F0716274EA892DCE0C09646755BD",
+  "jti": "384C17DFECEC3235C22B6DAD029FF4AD"
+}
+
+EventCatalog logged Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAyNTY5LCJpYXQiOjE3Njg3MDI1NjksImV4cCI6MTc2ODcwNjE2OSwiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAyNTY5LCJpZHAiOiJsb2NhbCIsImp0aSI6IkQyRTIyODczOUJCQTkzNUQ3MDA2ODgwODU4RTA1NTU5In0.Wjl-dqaIbE2XDi_bJeJrNVlCrJi-GRNXP78TRMfZRwewNdiN4RBOdZmaEU1HFYg77D_Nf70G1yG8IJ-i4Ud2ct09ljyKNfgLfahAw5a0LbThtkDjepAS329wQ_gfTBPBr7gFC6dmuBBRpngwbNZieyT8zzlJCOYCiV8YsnnBuGnbitLwJFD3RSeFceznfT4rFt2N-LjzkDMeMCtyifJ91Z6_xEvEtQOtOUoNzdD2g88IQqDMkvo8HykIoD22qN7Ui_2jw1plkR5-qklsECpXQMb1YBzBPCK2feEzJ58BehVfPF2kYkzIJeDYZJrAdOxy6-7Jm6fgvkU6_iM5xR0uLQ
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAyNTY5LCJpYXQiOjE3Njg3MDI1NjksImV4cCI6MTc2ODcwNjE2OSwiYXVkIjpbImV2ZW50Y2F0YWxvZyIsImh0dHBzOi8vbG9jYWxob3N0OjUwMjAvcmVzb3VyY2VzIl0sInNjb3BlIjpbImV2ZW50Y2F0YWxvZy5yZWFkIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsiYWNjZXNzX3Rva2VuIl0sImNsaWVudF9pZCI6ImdhdGV3YXl0b2Rvd25zdHJlYW10b2tlbmV4Y2hhbmdlY2xpZW50Iiwic3ViIjoiZTQ1NWEzZGYtN2ZhNS00N2UwLTg0MzUtMTc5YjMwMGQ1MzFmIiwiYXV0aF90aW1lIjoxNzY4NzAyNTY5LCJpZHAiOiJsb2NhbCIsImp0aSI6IkU0RDFFM0FGOUEzRUFFREU5OUE1M0E4NjRGMTQ4NkMxIn0.WrHTkOo6NdmU7TtQTzAmxOb_649bCiW1gU7CvajqzVeoZJW1kSW1OK1lu6pBlYk_RSt0Wpt-g_GDhCMduoGZbIFhD0K6PB1r6MSMDLjwWEQCJtDbapWPUHYZK_9cIpFRI-HN233y2DMs6FJ3G4NTLCJmK68qQ57RnqZXdxz6spFYGIJ3FFB9Vu3JNbSg22wLLHS0mWltoU5q0DMFhFssMYm2izdFy8dLruIiX-O-kOmHjq9FBULlcTyeaw2TGjsi2Y8SvyfAyzBUJ0aVNOeySDj_KLKMx-n6hNpEd7Fl9DAMX3lWDG-ko3sVO-PUhT399VnZecE4wdqT7vWK6avjCA
+
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768702569,
+  "iat": 1768702569,
+  "exp": 1768706169,
+  "aud": [
+    "eventcatalog",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "eventcatalog.read",
+    "openid",
+    "profile"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768702569,
+  "idp": "local",
+  "jti": "D2E228739BBA935D7006880858E05559"
+}
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768702569,
+  "iat": 1768702569,
+  "exp": 1768706169,
+  "aud": [
+    "eventcatalog",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "eventcatalog.read",
+    "openid",
+    "profile"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768702569,
+  "idp": "local",
+  "jti": "E4D1E3AF9A3EAEDE99A53A864F1486C1"
+}
+
+ShoppingBasket logged Token:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjFCMEJGRDM0MEIzNTExRjk5MjU0MzJERDQ3NENEMjhDIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDIwIiwibmJmIjoxNzY4NzAyNTY5LCJpYXQiOjE3Njg3MDI1NjksImV4cCI6MTc2ODcwNjE2OSwiYXVkIjpbInNob3BwaW5nYmFza2V0IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAyMC9yZXNvdXJjZXMiXSwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInNob3BwaW5nYmFza2V0LmZ1bGxhY2Nlc3MiXSwiYW1yIjpbImFjY2Vzc190b2tlbiJdLCJjbGllbnRfaWQiOiJnYXRld2F5dG9kb3duc3RyZWFtdG9rZW5leGNoYW5nZWNsaWVudCIsInN1YiI6ImU0NTVhM2RmLTdmYTUtNDdlMC04NDM1LTE3OWIzMDBkNTMxZiIsImF1dGhfdGltZSI6MTc2ODcwMjU2OSwiaWRwIjoibG9jYWwiLCJqdGkiOiJFMjQxQTMyRDc4NUQxNzFCMUExRDVCOTI1Q0VCQTg5RiJ9.WK2E71GnuGcaULa-BXGte1I85fyFWkhrijTMPtjAVV9cpaTiWiw1cb7-KkFblrnX0PRIuPCQL7cSO8tJgBrbgzyXZkSxGTQhOU1si0rpnuyxV804XVsGbLAdw_wxH9i8gOdQLmNFQKrAxMUrQrdxyKIKVwLOh8ahSH3yU5r6OfgodXA478fJctKzEXsug7vi3t1UvM-azgGU9-PyrMiBXOftW-WHyTx0HFy4VrpgSaJG3CqvgHkMoe1U5FpGsReQ2Eq3yqNANgpQmMc_Da-FUa7xuJHiFYJkvJi9Ozoe8q0_cQXCJEF_9xBt6iqUpFDTOF4dOd9X6pDwV8QHHagXgQ
+
+{
+  "iss": "https://localhost:5020",
+  "nbf": 1768702569,
+  "iat": 1768702569,
+  "exp": 1768706169,
+  "aud": [
+    "shoppingbasket",
+    "https://localhost:5020/resources"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "shoppingbasket.fullaccess"
+  ],
+  "amr": [
+    "access_token"
+  ],
+  "client_id": "gatewaytodownstreamtokenexchangeclient",
+  "sub": "e455a3df-7fa5-47e0-8435-179b300d531f",
+  "auth_time": 1768702569,
+  "idp": "local",
+  "jti": "E241A32D785D171B1A1D5B925CEBA89F"
+}
+
+
+
+
+
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:5050
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\home.jonathan\Documents\Pluralsight\ASP.NET Microservices\microservices-communication-asp-dot-net-core\05\demos\Resiliency\GloboTicket.Gateway.Ocelot
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/events
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/categories
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/baskets/{all}
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      The path '/eventcatalog/api/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      The path '/eventcatalog/api/events' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      The path '/shoppingbasket/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/shoppingbasket/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/events' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/categories' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/categories
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/events
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      No authorization needed for upstream path: /shoppingbasket/api/baskets/{all}
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token NOT in cache, requesting new token for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token NOT in cache, requesting new token for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Fetching discovery document from IdentityServer...
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Fetching discovery document from IdentityServer...
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 22.3751ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 20.4431ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 28.0578ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 28.0587ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 26.2181ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 29.1611ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 23.1888ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 23.2682ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 29.0896ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 29.1739ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 32.0013ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 32.068ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 89.5561ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 89.6656ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 89.7091ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 89.7747ms - 200
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 94.4353ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 94.5399ms - 200
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      New token fetched and cached for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      New token fetched and cached for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+warn: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000001, PreviousRequestId: -
+      404 Not Found status code of request URI: https://localhost:5002/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000001, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/categories
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000001, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/events
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/baskets/{all}
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/categories
+info: Ocelot.RateLimiting.Middleware.RateLimitingMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/events
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      The path '/eventcatalog/api/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      The path '/shoppingbasket/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      The path '/eventcatalog/api/events' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/events' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/shoppingbasket/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authentication.Middleware.AuthenticationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      Client has been authenticated for path '/eventcatalog/api/categories' by 'AuthenticationTypes.Federation' scheme.
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      route is authenticated scopes must be checked
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/events
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      user scopes is authorized calling next authorization checks
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /eventcatalog/api/categories
+info: Ocelot.Authorization.Middleware.AuthorizationMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      No authorization needed for upstream path: /shoppingbasket/api/baskets/{all}
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token returned from cache for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: GloboTicket.Gateway.DelegatingHandlers.EventCatalogTokenExchangeHandler[0]
+      Token returned from cache for scope 'gatewaytodownstreamtokenexchangeclient:eventcatalog:openid profile eventcatalog.read'
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 46.6858ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 46.7614ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5020/.well-known/openid-configuration/jwks
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 19.3205ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 19.3853ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.Default.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMNV:00000002, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/events
+info: System.Net.Http.HttpClient.Default.ClientHandler[101]
+      Received HTTP response headers after 66.0146ms - 200
+info: System.Net.Http.HttpClient.Default.LogicalHandler[101]
+      End processing HTTP request after 66.1201ms - 200
+warn: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMNU:00000002, PreviousRequestId: -
+      404 Not Found status code of request URI: https://localhost:5002/api/baskets/e831fe5e-ed5a-4da6-818f-e14ad6ae193d
+info: Ocelot.Requester.Middleware.HttpRequesterMiddleware[0]
+      RequestId: 0HNIOJI7UIMO0:00000002, PreviousRequestId: -
+      200 OK status code of request URI: https://localhost:5001/api/categories
+

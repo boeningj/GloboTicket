@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-globoticket-gateway-ocelot
+  namespace: globoticket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoticket-gateway-ocelot
+  template:
+    metadata:
+      labels:
+        app: globoticket-gateway-ocelot
+    spec:
+      containers:
+      - name: globoticket-gateway-ocelot
+        image: globoticket.azurecr.io/globoticket-gateway-ocelot:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5050
+        - containerPort: 5051
+        startupProbe:
+          httpGet:
+            path: /health/live
+            port: 5050
+          failureThreshold: 30
+          timeoutSeconds: 3
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5050
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+          periodSeconds: 10          
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5050
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        envFrom:
+        - configMapRef:
+            name: globoticket-common-config
+        - configMapRef:
+            name: globoticket-gateway-ocelot-config
+        - secretRef:
+            name: globoticket-gateway-ocelot-secrets
+        env:
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+          value: /https/globoticket.pfx
+        - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+          value: globoTicketAKS2026!
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Kubernetes
+        - name: GLOBALCONFIGURATION__BASEURL
+          value: https://api.20.112.251.61.nip.io:5051
+
+        volumeMounts:
+        - name: https-certs
+          mountPath: /https
+          readOnly: true
+
+      volumes:
+      - name: https-certs
+        secret:
+          secretName: globoticket-cert

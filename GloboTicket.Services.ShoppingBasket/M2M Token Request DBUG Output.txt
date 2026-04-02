@@ -1,0 +1,34 @@
+dbug: IdentityModel.AspNetCore.AccessTokenManagement.ClientAccessTokenCache[0]
+      Cache miss for access token for client: default
+dbug: IdentityModel.AspNetCore.AccessTokenManagement.TokenEndpointService[0]
+      Requesting client access token for client: default
+dbug: IdentityModel.AspNetCore.AccessTokenManagement.DefaultTokenClientConfigurationService[0]
+      Reading token client configuration from single configuration entry.
+dbug: IdentityModel.AspNetCore.AccessTokenManagement.DefaultTokenClientConfigurationService[0]
+      Returning token client configuration for client: default
+info: System.Net.Http.HttpClient.IdentityModel.AspNetCore.AccessTokenManagement.TokenEndpointService.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.IdentityModel.AspNetCore.AccessTokenManagement.TokenEndpointService.ClientHandler[100]
+      Sending HTTP request POST https://localhost:5020/connect/token
+info: System.Net.Http.HttpClient.IdentityModel.AspNetCore.AccessTokenManagement.TokenEndpointService.ClientHandler[101]
+      Received HTTP response headers after 78.068ms - 200
+info: System.Net.Http.HttpClient.IdentityModel.AspNetCore.AccessTokenManagement.TokenEndpointService.LogicalHandler[101]
+      End processing HTTP request after 82.1847ms - 200
+dbug: IdentityModel.AspNetCore.AccessTokenManagement.ClientAccessTokenCache[0]
+      Caching access token for client: default. Expiration: 12/14/2025 05:55:25 +00:00
+info: System.Net.Http.HttpClient.IEventCatalogService.ClientHandler[100]
+      Sending HTTP request GET https://localhost:5001/api/events/62787623-4c52-43fe-b0c9-b7044fb5929b
+info: System.Net.Http.HttpClient.IEventCatalogService.ClientHandler[101]
+      Received HTTP response headers after 214.8619ms - 200
+info: System.Net.Http.HttpClient.IEventCatalogService.LogicalHandler[101]
+      End processing HTTP request after 394.6704ms - 200
+info: GloboTicket.Services.ShoppingBasket.Repositories.AzRedisBasketRepository[0]
+      Inside repo - new IDs assigned: BasketId=aea8ed28-b29e-4362-b688-1b6725c6c2b5, BasketLineId=b00709fa-e9a0-4369-8df0-d1eb1627e7fe
+info: GloboTicket.Services.ShoppingBasket.Repositories.AzRedisBasketRepository[0]
+      Returning from repo: BasketId=aea8ed28-b29e-4362-b688-1b6725c6c2b5, BasketLineId=b00709fa-e9a0-4369-8df0-d1eb1627e7fe
+info: GloboTicket.Services.ShoppingBasket.Controllers.BasketLinesController[0]
+      ProcessedBasketLine AFTER repo call: BasketId=aea8ed28-b29e-4362-b688-1b6725c6c2b5, BasketLineId=b00709fa-e9a0-4369-8df0-d1eb1627e7fe
+info: GloboTicket.Services.ShoppingBasket.Controllers.BasketLinesController[0]
+      BasketLineToReturn AFTER AutoMapper: BasketId=aea8ed28-b29e-4362-b688-1b6725c6c2b5, BasketLineId=b00709fa-e9a0-4369-8df0-d1eb1627e7fe
+info: GloboTicket.Services.ShoppingBasket.Controllers.BasketLinesController[0]
+      CreatedAtRoute will return: basketId=aea8ed28-b29e-4362-b688-1b6725c6c2b5, basketLineId=b00709fa-e9a0-4369-8df0-d1eb1627e7fe

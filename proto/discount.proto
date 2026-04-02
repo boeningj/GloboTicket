@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "GloboTicket.Grpc";
+
+package API;
+
+service Discounts {
+    // Get coupon for a specific user
+    rpc GetCouponByUserId (GetCouponByUserIdRequest) returns (GetCouponByUserIdResponse) {}
+}
+
+message GetCouponByUserIdRequest {
+    string UserId = 1; // Guid of the user
+}
+
+message GetCouponByUserIdResponse {
+    Coupon coupon = 1;
+}
+
+message Coupon {
+    string CouponId = 1;
+    string UserId = 2;
+    int32 Amount = 3;
+}
