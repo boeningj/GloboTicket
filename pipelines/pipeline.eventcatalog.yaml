@@ -1,0 +1,73 @@
+trigger:
+- main
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+
+# ----------------------
+# BUILD STAGE
+# ----------------------
+- stage: Build
+  displayName: Build and Push Image
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: Docker@2
+      displayName: Build and Push Image
+      inputs:
+        containerRegistry: 'sc-acr-globoticket'
+        repository: 'globoticket-eventcatalog'
+        command: 'buildAndPush'
+        Dockerfile: 'GloboTicket.Services.EventCatalog/Dockerfile'
+        buildContext: '.'
+        tags: |
+          $(tag)
+
+# ----------------------
+# DEPLOY STAGE
+# ----------------------
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+
+    # Replace #{tag}# in deployment YAML
+    - task: replacetokens@5
+      displayName: Replace Image Tag
+      inputs:
+        targetFiles: 'k8s/aks/aks-eventcatalog.yaml'
+        tokenPattern: 'custom'
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+
+    # Apply ConfigMap FIRST
+    - task: Kubernetes@1
+      displayName: Apply EventCatalog ConfigMap
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-config-eventcatalog.yaml'
+
+    # Apply Deployment + Service
+    - task: Kubernetes@1
+      displayName: Deploy EventCatalog
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-eventcatalog.yaml'

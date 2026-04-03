@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-eventcatalog
-        image: globoticket.azurecr.io/globoticket-eventcatalog:1.0
+        image: globoticket.azurecr.io/globoticket-eventcatalog:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5001
