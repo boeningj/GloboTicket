@@ -13,8 +13,10 @@ stages:
   displayName: Build and Push Image
   jobs:
   - job: Build
+    #pool:
+    #  vmImage: 'ubuntu-latest'
     pool:
-      vmImage: 'ubuntu-latest'
+      name: Default
 
     steps:
     - task: Docker@2
@@ -36,8 +38,10 @@ stages:
   dependsOn: Build
   jobs:
   - job: Deploy
+    #pool:
+    #  vmImage: 'ubuntu-latest'
     pool:
-      vmImage: 'ubuntu-latest'
+      name: Default
 
     steps:
 
