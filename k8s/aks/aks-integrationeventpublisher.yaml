@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-integrationeventpublisher
-        image: globoticket.azurecr.io/globoticket-integrationeventpublisher:1.0
+        image: globoticket.azurecr.io/globoticket-integrationeventpublisher:#{tag}#
         imagePullPolicy: Always
         resources:
           requests:
