@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-marketing
-        image: globoticket.azurecr.io/globoticket-marketing:1.0
+        image: globoticket.azurecr.io/globoticket-marketing:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5008
