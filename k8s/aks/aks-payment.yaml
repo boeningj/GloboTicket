@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-payment
-        image: globoticket.azurecr.io/globoticket-payment:1.0
+        image: globoticket.azurecr.io/globoticket-payment:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5006
