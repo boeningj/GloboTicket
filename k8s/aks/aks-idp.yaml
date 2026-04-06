@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-idp
-        image: globoticket.azurecr.io/globoticket-idp:1.0
+        image: globoticket.azurecr.io/globoticket-idp:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5020
