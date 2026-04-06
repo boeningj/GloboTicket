@@ -1,0 +1,94 @@
+name: gateway-ocelot-$(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Gateway.Ocelot/**
+      - k8s/aks/aks-gateway-ocelot.yaml
+      - k8s/aks/aks-gateway-ocelot-service.yaml
+      - k8s/aks/aks-config-gateway-ocelot.yaml
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+
+# ----------------------
+# BUILD STAGE
+# ----------------------
+- stage: Build
+  displayName: Build and Push Image
+  jobs:
+  - job: Build
+    pool:
+      name: Default
+
+    steps:
+    - task: Docker@2
+      displayName: Build and Push Image
+      inputs:
+        containerRegistry: 'sc-acr-globoticket'
+        repository: 'globoticket-gateway-ocelot'
+        command: 'buildAndPush'
+        Dockerfile: 'GloboTicket.Gateway.Ocelot/Dockerfile'
+        buildContext: '.'
+        tags: |
+          $(tag)
+
+# ----------------------
+# DEPLOY STAGE
+# ----------------------
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    pool:
+      name: Default
+
+    steps:
+
+    # Replace #{tag}# in deployment YAML
+    - task: replacetokens@5
+      displayName: Replace Image Tag
+      inputs:
+        targetFiles: 'k8s/aks/aks-gateway-ocelot.yaml'
+        tokenPattern: 'custom'
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+
+    # Apply Service FIRST (LoadBalancer)
+    - task: Kubernetes@1
+      displayName: Apply Gateway Ocelot Service
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-gateway-ocelot-service.yaml'
+
+    # Apply ConfigMap
+    - task: Kubernetes@1
+      displayName: Apply Gateway Ocelot ConfigMap
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-config-gateway-ocelot.yaml'
+
+    # Deploy Gateway
+    - task: Kubernetes@1
+      displayName: Deploy Gateway Ocelot
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-gateway-ocelot.yaml'
