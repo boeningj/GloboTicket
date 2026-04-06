@@ -1,0 +1,74 @@
+name: ordering-$(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.Order/**
+      - k8s/aks/aks-ordering.yaml      
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+
+# ----------------------
+# BUILD STAGE
+# ----------------------
+- stage: Build
+  displayName: Build and Push Image
+  jobs:
+  - job: Build
+    #pool:
+    #  vmImage: 'ubuntu-latest'
+    pool:
+      name: Default
+
+    steps:
+    - task: Docker@2
+      displayName: Build and Push Image
+      inputs:
+        containerRegistry: 'sc-acr-globoticket'
+        repository: 'globoticket-ordering'
+        command: 'buildAndPush'
+        Dockerfile: 'GloboTicket.Services.Order/Dockerfile'
+        buildContext: '.'
+        tags: |
+          $(tag)
+
+# ----------------------
+# DEPLOY STAGE
+# ----------------------
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    #pool:
+    #  vmImage: 'ubuntu-latest'
+    pool:
+      name: Default
+
+    steps:
+
+    # Replace #{tag}# in deployment YAML
+    - task: replacetokens@5
+      displayName: Replace Image Tag
+      inputs:
+        targetFiles: 'k8s/aks/aks-ordering.yaml'
+        tokenPattern: 'custom'
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+    
+    # Apply Deployment + Service
+    - task: Kubernetes@1
+      displayName: Deploy Ordering
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'sc-aks-globoticket'
+        namespace: 'globoticket'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8s/aks/aks-ordering.yaml'
