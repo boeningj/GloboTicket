@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-discount
-        image: globoticket.azurecr.io/globoticket-discount:1.0
+        image: globoticket.azurecr.io/globoticket-discount:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5007
