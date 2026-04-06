@@ -1,4 +1,4 @@
-name: eventcatalog-$(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+name: shoppingbasket-$(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
   branches:
@@ -6,9 +6,9 @@ trigger:
       - main
   paths:
     include:
-      - GloboTicket.Services.EventCatalog/**
-      - k8s/aks/aks-eventcatalog.yaml
-      - k8s/aks/aks-config-eventcatalog.yaml
+      - GloboTicket.Services.ShoppingBasket/**
+      - k8s/aks/aks-shoppingbasket.yaml
+      - k8s/aks/aks-config-shoppingbasket.yaml
 
 variables:
   tag: '$(Build.BuildId)'
@@ -32,9 +32,9 @@ stages:
       displayName: Build and Push Image
       inputs:
         containerRegistry: 'sc-acr-globoticket'
-        repository: 'globoticket-eventcatalog'
+        repository: 'globoticket-shoppingbasket'
         command: 'buildAndPush'
-        Dockerfile: 'GloboTicket.Services.EventCatalog/Dockerfile'
+        Dockerfile: 'GloboTicket.Services.ShoppingBasket/Dockerfile'
         buildContext: '.'
         tags: |
           $(tag)
@@ -58,29 +58,29 @@ stages:
     - task: replacetokens@5
       displayName: Replace Image Tag
       inputs:
-        targetFiles: 'k8s/aks/aks-eventcatalog.yaml'
+        targetFiles: 'k8s/aks/aks-shoppingbasket.yaml'
         tokenPattern: 'custom'
         tokenPrefix: '#{'
         tokenSuffix: '}#'
 
     # Apply ConfigMap FIRST
     - task: Kubernetes@1
-      displayName: Apply EventCatalog ConfigMap
+      displayName: Apply ShoppingBasket ConfigMap
       inputs:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'sc-aks-globoticket'
         namespace: 'globoticket'
         command: 'apply'
         useConfigurationFile: true
-        configuration: 'k8s/aks/aks-config-eventcatalog.yaml'
+        configuration: 'k8s/aks/aks-config-shoppingbasket.yaml'
 
     # Apply Deployment + Service
     - task: Kubernetes@1
-      displayName: Deploy EventCatalog
+      displayName: Deploy ShoppingBasket
       inputs:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'sc-aks-globoticket'
         namespace: 'globoticket'
         command: 'apply'
         useConfigurationFile: true
-        configuration: 'k8s/aks/aks-eventcatalog.yaml'
+        configuration: 'k8s/aks/aks-shoppingbasket.yaml'
