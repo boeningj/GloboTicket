@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: globoticket-services-externalpaymentgateway
-        image: globoticket.azurecr.io/globoticket-externalpaymentgateway:1.0
+        image: globoticket.azurecr.io/globoticket-externalpaymentgateway:#{tag}#
         imagePullPolicy: Always
         ports:
         - containerPort: 5004
