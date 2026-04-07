@@ -1,0 +1,52 @@
+name: client-$(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Client/**
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: 'Release'
+
+stages:
+
+- stage: BuildAndDeploy
+  displayName: Build and Deploy Client
+  jobs:
+  - job: Build
+    steps:
+
+    # Publish MVC App
+    - task: DotNetCoreCLI@2
+      displayName: Publish Client
+      inputs:
+        command: publish
+        publishWebProjects: false
+        projects: 'GloboTicket.Client/GloboTicket.Client.csproj'
+        arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)/publish'
+        zipAfterPublish: false
+
+    # Zip publish output
+    - task: ArchiveFiles@2
+      displayName: Zip Publish Folder
+      inputs:
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/publish'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: '$(Build.ArtifactStagingDirectory)/publish.zip'
+        replaceExistingArchive: true
+
+    # Deploy to App Service
+    - task: AzureWebApp@1
+      displayName: Deploy to App Service
+      inputs:
+        azureSubscription: 'sc-azure-globoticket'
+        appType: webApp
+        appName: 'globoticket-client'
+        package: '$(Build.ArtifactStagingDirectory)/publish.zip'
