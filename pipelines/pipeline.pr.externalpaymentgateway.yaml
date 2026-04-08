@@ -1,0 +1,32 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - External.PaymentGateway/**
+      - k8s/aks/aks-externalpaymentgateway.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore External.PaymentGateway/External.PaymentGateway.csproj
+  displayName: Restore
+
+- script: dotnet build External.PaymentGateway/External.PaymentGateway.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test External.PaymentGateway/External.PaymentGateway.csproj --no-build -c $(buildConfiguration)
+  displayName: Test
