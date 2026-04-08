@@ -1,0 +1,33 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.EventCatalog/**
+      - k8s/aks/aks-eventcatalog.yaml
+      - k8s/aks/aks-config-eventcatalog.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Services.EventCatalog/GloboTicket.Services.EventCatalog.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Services.EventCatalog/GloboTicket.Services.EventCatalog.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test --no-build -c $(buildConfiguration)
+  displayName: Test
