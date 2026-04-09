@@ -1,0 +1,32 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.Order/**
+      - k8s/aks/aks-ordering.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Services.Order/GloboTicket.Services.Ordering.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Services.Order/GloboTicket.Services.Ordering.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test --no-build -c $(buildConfiguration)
+  displayName: Test

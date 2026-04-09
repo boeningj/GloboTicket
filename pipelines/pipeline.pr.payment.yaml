@@ -1,0 +1,32 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.Payment/**
+      - k8s/aks/aks-payment.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Services.Payment/GloboTicket.Services.Payment.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Services.Payment/GloboTicket.Services.Payment.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test GloboTicket.Services.Payment/GloboTicket.Services.Payment.csproj --no-build -c $(buildConfiguration)
+  displayName: Test

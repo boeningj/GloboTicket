@@ -1,0 +1,32 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.IntegrationEventPublisher/**
+      - k8s/aks/aks-integrationeventpublisher.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Services.IntegrationEventPublisher/GloboTicket.Services.IntegrationEventPublisher.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Services.IntegrationEventPublisher/GloboTicket.Services.IntegrationEventPublisher.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test GloboTicket.Services.IntegrationEventPublisher/GloboTicket.Services.IntegrationEventPublisher.csproj --no-build -c $(buildConfiguration)
+  displayName: Test

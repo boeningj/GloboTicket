@@ -1,0 +1,33 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Services.Discount/**
+      - k8s/aks/aks-discount.yaml
+      - k8s/aks/aks-config-discount.yaml
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Services.Discount/GloboTicket.Services.Discount.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Services.Discount/GloboTicket.Services.Discount.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test --no-build -c $(buildConfiguration)
+  displayName: Test

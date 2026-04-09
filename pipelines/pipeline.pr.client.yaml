@@ -1,0 +1,31 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - GloboTicket.Client/**
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: Release
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore GloboTicket.Client/GloboTicket.Web.csproj
+  displayName: Restore
+
+- script: dotnet build GloboTicket.Client/GloboTicket.Web.csproj --no-restore -c $(buildConfiguration)
+  displayName: Build
+
+- script: dotnet test GloboTicket.Client/GloboTicket.Web.csproj --no-build -c $(buildConfiguration)
+  displayName: Test
