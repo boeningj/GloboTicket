@@ -281,11 +281,19 @@ namespace GloboTicket.Services.EventCatalog
                 var config = sp.GetRequiredService<IConfiguration>();
                 return new CosmosClient(config["CosmosDb:Endpoint"], config["CosmosDb:Key"]);
             });
-
+            
             services.AddHealthChecks()
                 .AddCheck("self", () => HealthCheckResult.Healthy())
-                .AddCheck<CosmosDbHealthCheck>("cosmos");                
-
+                .AddCheck<CosmosDbHealthCheck>("cosmos")
+                .AddCheck("memory", () =>
+                {
+                    var allocated = GC.GetTotalMemory(false);
+                    if (allocated > 200 * 1024 * 1024)
+                    {
+                        return HealthCheckResult.Unhealthy($"Memory usage too high: {allocated / 1024 / 1024} MB");
+                    }
+                    return HealthCheckResult.Healthy($"Memory OK: {allocated / 1024 / 1024} MB");
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider, ILogger<Startup> logger)
