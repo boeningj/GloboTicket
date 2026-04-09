@@ -281,7 +281,7 @@ namespace GloboTicket.Services.EventCatalog
                 var config = sp.GetRequiredService<IConfiguration>();
                 return new CosmosClient(config["CosmosDb:Endpoint"], config["CosmosDb:Key"]);
             });
-            //This is to simulate a code change
+            
             services.AddHealthChecks()
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddCheck<CosmosDbHealthCheck>("cosmos")
