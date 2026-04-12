@@ -21,6 +21,9 @@ secrets.json
 # -----------------------------
 bin/
 obj/
+publish/
+**/publish/
+*.zip
 
 # -----------------------------
 # Visual Studio / Rider
