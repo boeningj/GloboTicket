@@ -261,7 +261,8 @@ From this point forward, processing becomes asynchronous and is handled via Azur
 
 The following diagram illustrates the end-to-end user interaction flow, including event browsing, basket management, and asynchronous order and payment processing via Azure Service Bus.
 
-![Sequence Diagram](docs/GloboTicket-RequestFlow-Sequence-small.png)
+
+![Sequence Diagram](docs/GloboTicket-RequestFlow-Sequence-Final.png)
 
 ## API Documentation
 
