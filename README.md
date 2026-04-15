@@ -16,9 +16,7 @@ The system is built using an Ocelot API Gateway, Duende IdentityServer for authe
 
 ## Architecture Diagram
 
-<p align="center">
-  <img src="docs/GloboTicket-Architecture1.drawio.png" width="65%">
-</p>
+![Architecture Diagram](docs/GloboTicket-Architecture-small.drawio.png)
 
 ## Key Architecture Concepts
 
