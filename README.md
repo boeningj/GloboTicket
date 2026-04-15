@@ -263,11 +263,6 @@ The following diagram illustrates the end-to-end user interaction flow, includin
 
 ![Sequence Diagram](docs/GloboTicket-RequestFlow-Sequence-small.png)
 
-Test using img tag:
-<p align="center">
-  <img src="docs/GloboTicket-RequestFlow-Sequence-small.png" width="1100" />
-</p>
-
 ## API Documentation
 
 Each microservice exposes Swagger/OpenAPI documentation.
