@@ -214,6 +214,60 @@ The GloboTicket system uses OpenID Connect with token exchange to securely propa
 
 ## Request Flow
 
+The following flow describes how a user interacts with the system, combining synchronous API requests through the gateway and asynchronous event-driven processing via Azure Service Bus.
+
+1. User accesses the MVC Client application
+2. MVC Client authenticates the user via Duende IdentityServer
+3. An access token is issued and included in subsequent requests to the Ocelot API Gateway
+4. The client sends requests to the Ocelot API Gateway
+5. The gateway validates the token and routes requests to the appropriate microservice
+6. The gateway performs token exchange to obtain downstream service-specific access tokens when required
+
+### Browsing Events
+
+7. The MVC Client requests available events via the gateway
+8. The gateway routes the request to the Event Catalog service
+9. The Event Catalog service retrieves event data from Azure Cosmos DB
+10. Event data is returned to the client
+
+### Basket and Checkout
+
+11. The user adds items to their shopping basket
+12. The Shopping Basket service stores basket data in Azure Cache for Redis
+13. The Shopping Basket service retrieves user-specific discount information from the Discount service
+
+### Order Processing (Asynchronous)
+
+From this point forward, processing becomes asynchronous and is handled via Azure Service Bus.
+
+14. When the user checks out, the Shopping Basket service publishes a checkout event to Azure Service Bus
+15. The Ordering service consumes the checkout event and creates a new order in Azure SQL Database
+16. The Ordering service publishes a payment request event to Azure Service Bus
+
+### Payment Processing
+
+17. The Payment service consumes the payment request event
+18. The Payment service calls the External Payment Gateway to process payment
+19. The External Payment Gateway returns a success or failure response
+20. The Payment service publishes a payment result event to Azure Service Bus
+
+### Order Completion
+
+21. The Ordering service consumes the payment result event
+22. The order status is updated based on the payment result
+23. The MVC Client retrieves updated order information via the gateway
+
+## Sequence Diagram
+
+The following diagram illustrates the end-to-end user interaction flow, including event browsing, basket management, and asynchronous order and payment processing via Azure Service Bus.
+
+![Sequence Diagram](docs/GloboTicket-RequestFlow-Sequence-small.png)
+
+Test using img tag:
+<p align="center">
+  <img src="docs/GloboTicket-RequestFlow-Sequence-small.png" width="1100" />
+</p>
+
 ## API Documentation
 
 Each microservice exposes Swagger/OpenAPI documentation.
