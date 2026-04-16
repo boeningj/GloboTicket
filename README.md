@@ -22,6 +22,7 @@ The system is built using an Ocelot API Gateway, Duende IdentityServer for authe
 
 - Microservices architecture
 - API Gateway pattern (Ocelot)
+- API versioning and backward compatibility
 - OpenID Connect authentication
 - Token exchange for downstream services
 - Asynchronous messaging with Azure Service Bus
@@ -34,21 +35,25 @@ The system is built using an Ocelot API Gateway, Duende IdentityServer for authe
 
 ### MVC Client Application
 
-The MVC Client application provides the user interface for browsing available events, managing a shopping basket, and completing ticket purchases. Users can add, update, and remove tickets from their basket, proceed to checkout, and submit payment information.
+The MVC Client provides the user interface for browsing available events, managing a shopping basket, and completing ticket purchases. Users can add, update, and remove tickets from their basket, proceed to checkout, and submit payment information.
 
-The MVC Client communicates with backend services exclusively through the Ocelot API Gateway.
+🔗 **Live Application (Azure App Service):** https://globoticket-client.azurewebsites.net
+
+> ⚠️ Note: The application may be offline outside of active development hours to optimize cloud resource usage.
+
+The MVC Client communicates with backend services exclusively through the Ocelot API Gateway, which acts as a single entry point to the system.
 
 Authentication is handled using Duende IdentityServer.
 
-Test users:
+**Test Users**
 
-User 1  
-Username: Alice  
-Password: Alice  
+- **Alice**  
+  Username: Alice  
+  Password: Alice  
 
-User 2  
-Username: Bob  
-Password: Bob
+- **Bob**  
+  Username: Bob  
+  Password: Bob 
 
 ### Duende IdentityServer
 
@@ -79,9 +84,13 @@ The gateway is responsible for:
 
 ### Event Catalog Service
 
-The Event Catalog service provides a list of available events that users can browse within the GloboTicket application. This service is responsible for retrieving event details such as event name, category, description, pricing, and availability.
+The Event Catalog service provides a list of available events that users can browse within the GloboTicket application. It is responsible for retrieving event details such as event name, category, description, pricing, and availability.
 
 Event data is stored in Azure Cosmos DB and accessed by the service. The MVC Client retrieves event information by sending requests through the Ocelot API Gateway, which routes the request to the Event Catalog service.
+
+The Event Catalog service supports API versioning to ensure backward compatibility as the API evolves. Version 1 and Version 2 endpoints expose different response shapes, allowing existing clients to continue functioning without disruption.
+
+Versioning is implemented using URL-based routing (e.g., `/api/events` and `/api/v2/events`) and is integrated with Swagger for clear API documentation. Integration tests validate that each version returns the expected contract and maintains backward compatibility.
 
 The Event Catalog service is responsible for:
 
@@ -261,19 +270,177 @@ From this point forward, processing becomes asynchronous and is handled via Azur
 
 The following diagram illustrates the end-to-end user interaction flow, including event browsing, basket management, and asynchronous order and payment processing via Azure Service Bus.
 
-
 ![Sequence Diagram](docs/GloboTicket-RequestFlow-Sequence-Final.png)
+
+## Messaging
+
+The GloboTicket system uses asynchronous messaging to decouple services and improve scalability, resilience, and data consistency. Azure Service Bus is used as the messaging backbone for inter-service communication.
+
+### Order Processing Flow
+
+- The Shopping Basket service publishes a `BasketCheckoutMessage` when a user completes checkout
+- The Ordering service consumes the message and creates a new order
+- The Ordering service publishes an `OrderPaymentRequestMessage`
+- The Payment service processes the payment via the External Payment Gateway
+- The Payment service publishes an `OrderPaymentUpdateMessage`
+- The Ordering service consumes the result and updates the order status
+
+### Event Data Synchronization
+
+In addition to order processing, the system uses messaging to propagate changes to event data across services.
+
+- The Event Catalog service records event updates (e.g., price changes, schedule updates) in an integration event log stored in Azure Cosmos DB
+- The Integration Event Publisher reads these events from the log and publishes them to Azure Service Bus
+- The Ordering service subscribes to these messages and processes `EventUpdate` messages
+- The Ordering service updates its local order data to reflect the latest event information
+
+This approach ensures reliable event publishing, prevents message loss, and avoids inconsistencies between database updates and message delivery.
+
+This design avoids the dual-write problem by ensuring that database updates and message publishing are handled reliably and consistently.
+
+### Message Contracts
+
+Messages contain all data required for downstream processing. This allows services to operate independently without requiring additional synchronous API calls.
+
+Examples:
+
+- `BasketCheckoutMessage` includes user details, basket contents, and payment information required to create an order
+- `OrderPaymentRequestMessage` contains payment details and order information required for payment processing
+- `OrderPaymentUpdateMessage` communicates the result of payment processing (success or failure) back to the Ordering service
+- `EventUpdate` messages contain updated event data such as pricing and scheduling
+
+This design ensures that each service has all the information it needs to process messages independently, supporting loose coupling and eventual consistency.
+
+### Integration Event Publisher (Outbox Pattern)
+
+To ensure reliable message delivery, the system uses an Integration Event Publisher service implementing the Outbox Pattern.
+
+- Events are first stored in a database
+- The publisher service reads and publishes events to Azure Service Bus
+- Message processing includes idempotency checks to prevent duplicate handling
+- This ensures consistency between database changes and published messages
+
+### Benefits
+
+- Decouples microservices
+- Enables asynchronous processing
+- Improves system resilience
+- Supports eventual consistency
+- Keeps distributed data in sync across services
 
 ## API Documentation
 
-Each microservice exposes Swagger/OpenAPI documentation.
+Each microservice exposes Swagger/OpenAPI documentation for exploring available endpoints.
 
-Since services are internal to the cluster, Swagger can be accessed using kubectl port-forward.
+Since services are internal to the Kubernetes cluster, Swagger can be accessed locally using `kubectl port-forward`.
 
-Example:
+### Example: Event Catalog Service
 
+```bash
 kubectl port-forward svc/svc-globoticket-services-eventcatalog 7001:5001 -n globoticket
+```
 
-Then open:
+Then open in your browser:
 
 http://localhost:7001/swagger
+
+### Other Services
+
+| Service                  | Port Forward Command                                                                              | Swagger URL                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Shopping Basket          | kubectl port-forward svc/svc-globoticket-services-shoppingbasket 7002:5002 -n globoticket         | [http://localhost:7002/swagger](http://localhost:7002/swagger) |
+| External Payment Gateway | kubectl port-forward svc/svc-globoticket-services-externalpaymentgateway 7004:5004 -n globoticket | [http://localhost:7004/swagger](http://localhost:7004/swagger) |
+| Ordering                 | kubectl port-forward svc/svc-globoticket-services-ordering 7005:5005 -n globoticket               | [http://localhost:7005/swagger](http://localhost:7005/swagger) |
+| Payment | N/A | Not applicable (background worker service) |
+| Discount                 | kubectl port-forward svc/svc-globoticket-services-discount 7007:5007 -n globoticket               | [http://localhost:7007/swagger](http://localhost:7007/swagger) |
+| Marketing | N/A | Not applicable (background worker service) |
+
+### Notes
+- Swagger is available when the services are running in the Kubernetes cluster
+- Replace the service name and local port as needed for other microservices
+- Port-forwarding must remain active while accessing Swagger
+- This approach allows secure access to internal services without exposing them publicly
+- Worker services (e.g., Payment, Marketing) do not expose HTTP endpoints and therefore do not provide Swagger documentation
+
+## Deployment
+
+The GloboTicket system is deployed to Azure Kubernetes Service (AKS), where each microservice runs as a containerized application.
+
+### Services (AKS Cluster)
+
+The following components are deployed within the AKS cluster:
+
+- Event Catalog
+- Shopping Basket
+- Ordering
+- Payment
+- External Payment Gateway (adapter service for third-party payment integration)
+- Discount
+- Marketing
+- Integration Event Publisher
+- Ocelot API Gateway
+- Duende IdentityServer
+
+### Client Application
+
+The MVC Client application is hosted separately in Azure App Service and communicates with the backend exclusively through the Ocelot API Gateway.
+
+### Azure Services
+
+The system integrates with several managed Azure services:
+
+- Azure Service Bus for asynchronous messaging
+- Azure Cosmos DB for event data and integration event logging (Outbox Pattern)
+- Azure SQL Database for transactional data
+- Azure Cache for Redis for basket storage
+
+### Kubernetes Configuration
+
+Kubernetes manifests for deployments, services, ConfigMaps, and Secrets are located in the `/k8s/aks` directory.
+
+These manifests define:
+
+- Container deployments for each microservice
+- Internal service communication within the cluster
+- Environment-specific configuration and secrets
+
+### CI/CD
+
+Deployments are automated using Azure DevOps pipelines, which build Docker images, push them to Azure Container Registry, and deploy them to AKS.
+
+Pull request (PR) validation pipelines are configured to automatically build affected services based on the changes in a PR, ensuring that updates compile successfully before being merged.
+
+Integration tests are included in the solution (e.g., Event Catalog API versioning tests), validating backward compatibility and API behavior. The pipeline is structured to support executing these tests as part of the validation process.
+
+All pipeline definitions are stored in the `/pipelines` directory.
+
+## Local Development
+
+The GloboTicket system can be run locally using Docker and Kubernetes. The MVC Client can also be run locally by launching the ASP.NET Core application and configuring it to communicate with the API Gateway.
+
+### Prerequisites
+
+- .NET 8 SDK
+- Docker Desktop
+- Kubernetes (enabled via Docker Desktop or another local cluster)
+- Azure resources (Service Bus, Cosmos DB, SQL Database, Redis) or local equivalents
+
+### Running the Services
+
+1. Clone the repository
+2. Build the services using the .NET CLI or Docker
+3. Apply Kubernetes manifests from the `/k8s/aks` directory (or adapt them for local use)
+4. Configure environment variables and secrets for external dependencies
+
+### Notes
+
+- Some services depend on Azure resources (e.g., Service Bus, Cosmos DB), which may require configuration or mocking for full local execution
+- The system is primarily designed to run in a cloud-hosted environment (AKS), so local setup may require additional configuration
+
+## Author
+
+Jonathan Boening
+
+This project demonstrates a cloud-native microservices architecture built with ASP.NET Core, Azure Kubernetes Service (AKS), and event-driven design patterns.
+
+- GitHub: https://github.com/boeningj
