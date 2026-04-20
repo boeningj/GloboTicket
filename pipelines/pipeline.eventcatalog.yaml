@@ -40,15 +40,17 @@ stages:
         tags: |
           $(tag)
 
-    - script: |
-        docker run --rm `
-          -v /var/run/docker.sock:/var/run/docker.sock `
-          aquasec/trivy:0.50.0 image `
-          --severity LOW,MEDIUM,HIGH,CRITICAL `
-          --exit-code 0 `
-          globoticket-eventcatalog:$(tag)
+    - task: PowerShell@2
       displayName: "Trivy Scan (Phase 1 - Non-blocking)"
-      shell: powershell
+      inputs:
+        targetType: 'inline'
+        script: |
+          docker run --rm `
+            -v /var/run/docker.sock:/var/run/docker.sock `
+            aquasec/trivy:0.50.0 image `
+            --severity LOW,MEDIUM,HIGH,CRITICAL `
+            --exit-code 0 `
+            globoticket-eventcatalog:$(tag)
 
     - task: Docker@2
       displayName: Push Image
