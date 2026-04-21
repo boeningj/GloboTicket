@@ -40,6 +40,9 @@ stages:
         tags: |
           $(tag)
 
+    - script: docker images
+      displayName: Check images
+
     - task: PowerShell@2
       displayName: "Trivy Scan (Phase 1 - Non-blocking)"
       inputs:
