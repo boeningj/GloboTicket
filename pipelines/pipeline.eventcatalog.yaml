@@ -22,10 +22,10 @@ stages:
   displayName: Build, Scan, and Push Image
   jobs:
   - job: Build
-    #pool:
-    #  vmImage: 'ubuntu-latest'
     pool:
-      name: Default
+      vmImage: 'ubuntu-latest'
+    #pool:
+    #  name: Default
 
     steps:
 
@@ -69,10 +69,10 @@ stages:
   dependsOn: Build
   jobs:
   - job: Deploy
-    #pool:
-    #  vmImage: 'ubuntu-latest'
     pool:
-      name: Default
+      vmImage: 'ubuntu-latest'
+    #pool:
+    #  name: Default
 
     steps:
 
