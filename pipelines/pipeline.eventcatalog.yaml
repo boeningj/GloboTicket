@@ -40,20 +40,17 @@ stages:
         tags: |
           $(tag)
 
-    - script: docker images
-      displayName: Check images
+    - script: |
+        sudo apt-get update
+        sudo apt-get install -y wget rpm
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.50.0/trivy_0.50.0_Linux-64bit.deb
+        sudo dpkg -i trivy_0.50.0_Linux-64bit.deb
+        trivy -v
+      displayName: Install Trivy
 
-    - task: PowerShell@2
-      displayName: "Trivy Scan (Phase 1 - Non-blocking)"
-      inputs:
-        targetType: 'inline'
-        script: |
-          docker run --rm `
-            -v /var/run/docker.sock:/var/run/docker.sock `
-            aquasec/trivy:0.50.0 image `
-            --severity LOW,MEDIUM,HIGH,CRITICAL `
-            --exit-code 0 `
-            globoticket-eventcatalog:$(tag)
+    - script: |
+        trivy image --scanners vuln --severity LOW,MEDIUM,HIGH,CRITICAL globoticket-eventcatalog:$(tag)
+      displayName: Trivy Scan (Phase 1 - Non-blocking)
 
     - task: Docker@2
       displayName: Push Image
