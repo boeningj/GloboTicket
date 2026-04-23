@@ -41,19 +41,11 @@ stages:
           $(tag)
 
     - script: |
-        sudo apt-get update
-        sudo apt-get install -y wget apt-transport-https gnupg lsb-release
-
-        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-
-        echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/trivy.list
-
-        sudo apt-get update
-
-        sudo apt-get install -y trivy=0.50.0-1
-
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.70.0/trivy_0.70.0_Linux-64bit.tar.gz
+        tar -xzf trivy_0.70.0_Linux-64bit.tar.gz
+        sudo mv trivy /usr/local/bin/
         trivy -v
-      displayName: Install Trivy (pinned via APT)
+      displayName: Install Trivy (pinned)
 
     - script: |
         trivy image --scanners vuln --severity LOW,MEDIUM,HIGH,CRITICAL globoticket-eventcatalog:$(tag)
