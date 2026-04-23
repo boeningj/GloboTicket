@@ -12,6 +12,8 @@ trigger:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'globoticket-eventcatalog'
+  registry: 'globoticket.azurecr.io'
 
 stages:
 
@@ -48,7 +50,7 @@ stages:
       displayName: Install Trivy (pinned)
 
     - script: |
-        trivy image --scanners vuln --severity LOW,MEDIUM,HIGH,CRITICAL globoticket-eventcatalog:$(tag)
+        trivy image --scanners vuln --severity LOW,MEDIUM,HIGH,CRITICAL globoticket.azurecr.io/globoticket-eventcatalog:$(tag)
       displayName: Trivy Scan (Phase 1 - Non-blocking)
 
     - task: Docker@2
