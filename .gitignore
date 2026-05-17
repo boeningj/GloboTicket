@@ -46,3 +46,13 @@ Thumbs.db
 
 # Personal notes
 Notes/
+
+# -----------------------------
+# ASP.NET Data Protection Keys
+# -----------------------------
+GloboTicket.IDP/dpkeys/
+
+# -----------------------------
+# IdentityServer signing keys
+# -----------------------------
+GloboTicket.IDP/keys/

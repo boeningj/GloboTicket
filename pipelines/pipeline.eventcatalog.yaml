@@ -12,6 +12,8 @@ trigger:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'globoticket-eventcatalog'
+  registry: 'globoticket.azurecr.io'
 
 stages:
 
@@ -19,23 +21,44 @@ stages:
 # BUILD STAGE
 # ----------------------
 - stage: Build
-  displayName: Build and Push Image
+  displayName: Build, Scan, and Push Image
   jobs:
   - job: Build
-    #pool:
-    #  vmImage: 'ubuntu-latest'
     pool:
-      name: Default
+      vmImage: 'ubuntu-latest'
+    #pool:
+    #  name: Default
 
     steps:
+
     - task: Docker@2
-      displayName: Build and Push Image
+      displayName: Build Image
       inputs:
         containerRegistry: 'sc-acr-globoticket'
         repository: 'globoticket-eventcatalog'
-        command: 'buildAndPush'
+        command: 'build'
         Dockerfile: 'GloboTicket.Services.EventCatalog/Dockerfile'
         buildContext: '.'
+        tags: |
+          $(tag)
+
+    - script: |
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.70.0/trivy_0.70.0_Linux-64bit.tar.gz
+        tar -xzf trivy_0.70.0_Linux-64bit.tar.gz
+        sudo mv trivy /usr/local/bin/
+        trivy -v
+      displayName: Install Trivy (pinned)
+
+    - script: |
+        trivy image --scanners vuln --severity LOW,MEDIUM,HIGH,CRITICAL globoticket.azurecr.io/globoticket-eventcatalog:$(tag)
+      displayName: Trivy Scan (Phase 1 - Non-blocking)
+
+    - task: Docker@2
+      displayName: Push Image
+      inputs:
+        containerRegistry: 'sc-acr-globoticket'
+        repository: 'globoticket-eventcatalog'
+        command: 'push'
         tags: |
           $(tag)
 
@@ -47,10 +70,10 @@ stages:
   dependsOn: Build
   jobs:
   - job: Deploy
-    #pool:
-    #  vmImage: 'ubuntu-latest'
     pool:
-      name: Default
+      vmImage: 'ubuntu-latest'
+    #pool:
+    #  name: Default
 
     steps:
 
